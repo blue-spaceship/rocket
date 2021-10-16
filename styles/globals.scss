@@ -1,0 +1,241 @@
+:root {
+	font-size: 12px;
+	line-height: 1.5;
+	font-family: 'Noto Sans Display', sans-serif;
+
+	--color-main-one: #00B1FE;
+	--color-main-one-dark: #0087FE;
+	--color-main-two: #57E1E6;
+	--color-main-two-dark: #44CFD7;
+
+	--color-text: #000000cc;
+	--color-text-contrast: #ffffff;
+
+	--color-border: #00000013;
+
+	--color-background: #ffffff;
+	--color-foreground: #fafafa;
+	--color-foreground-two: #eeeeee;
+
+	--shadow: rgba(0, 0, 0, 0.06);
+
+	@media (prefers-color-scheme: dark) {
+		--color-text: #ffffff;
+		--color-border: #101426;
+		--color-background: #151A30;
+		--color-foreground: #222B45;
+		--color-foreground-two: #1A2138;
+	}
+
+	--color-default: #BBBBBB;
+	--color-info: #2B7CFF;
+	--color-success: #31E255;
+	--color-warning: #FFB821;
+	--color-danger: #FF496B;
+
+	--rounded: 1rem;
+
+	background-color: var(--color-background);
+	color: var(--color-text);
+
+	@media (min-width: 1600px) {
+		font-size: 14px;
+	}
+}
+
+::selection {
+	background: var(--color-main-two);
+	color: var(--color-text-contrast)
+}
+
+html,
+body {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+html {
+	height: 100%;
+	display: block;
+	overscroll-behavior-y: none;
+}
+
+body {
+	height: 100%;
+	display: block;
+
+	&.noproduction{
+		--color-main-one: #FF0077;
+		--color-main-one-dark: #cf0061;
+		--color-main-two: #F76BEE;
+		--color-main-two-dark: #cf43c6;
+	}
+}
+
+#__next {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+	color: var(--color-main-one);
+
+	&:hover {
+		color: var(--color-main-one-dark);
+	}
+}
+
+
+.input-area {
+	display: flex;
+	flex-direction: column;
+	gap: .3rem;
+
+	.input-label {
+		display: flex;
+		flex-direction: row;
+		font-weight: bolder;
+		user-select: none;
+	}
+
+	.input-field {
+		display: flex;
+		flex-direction: row;
+		border-radius: var(--rounded);
+		background-color: var(--color-background);
+
+		&:focus-within {
+			box-shadow: 0px 0px 10px -5px var(--color-main-one);
+		}
+
+		input {
+			flex: 1;
+			border: none;
+			outline: none;
+			line-height: 1;
+			font-size: 1rem;
+			padding: .5rem 1rem;
+			height: 3rem;
+			width: 100%;
+			flex-direction: row;
+			justify-content: center;
+			border-radius: var(--rounded);
+			background-color: transparent !important;
+			color: var(--color-text);
+
+
+			&:-webkit-autofill,
+			&:-webkit-autofill:hover, 
+			&:-webkit-autofill:focus{
+			  border: none !important;
+			  -webkit-text-fill-color: var(--color-text) !important;
+			  -webkit-box-shadow: 0 0 0px 1000px var(--color-background) inset;
+			  transition: background-color 5000s ease-in-out 0s;
+			}
+		}
+	}
+}
+
+.btn {
+	user-select: none;
+	border: none;
+	display: flex;
+	height: 3rem;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	border-radius: var(--rounded);
+	cursor: pointer;
+	transition: all 300ms ease;
+	outline: none;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.btn-icon {
+	@extend .btn;
+	aspect-ratio: 1/1;
+	overflow: hidden;
+	height: 3rem;
+	width: 3rem;
+	flex-shrink: 3rem;
+	background-color: transparent;
+	color: var(--color-main-one);
+
+	&:hover {
+		background-color: var(--color-main-one-dark);
+		color: var(--color-text-contrast);
+	}
+}
+
+.btn-submit {
+	@extend .btn;
+	color: var(--color-text-contrast);
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	background-color: var(--color-main-one);
+	background: radial-gradient(var(--color-main-two), var(--color-main-one));
+	background-size: 250px 250px;
+	background-position: center center;
+
+	&:hover {
+		background-size: 300% 300%;
+	}
+
+	&:active {
+		background: var(--color-main-one-dark);
+	}
+}
+
+.btn-submit-2 {
+	@extend .btn;
+	color: var(--color-text-contrast);
+	text-transform: uppercase;
+	letter-spacing: 1px;
+
+	background-color: var(--color-main-one);
+
+	&:hover,
+	:active {
+		background: var(--color-main-one-dark);
+	}
+}
+
+.container {
+	margin: 0 auto;
+	padding: 0 2rem;
+	width: 100%;
+
+	@media (min-width: 768px) {
+		max-width: 80%;
+	}
+}
+
+
+.icon-default {
+	color: var(--color-default)
+}
+
+.icon-warning {
+	color: var(--color-warning)
+}
+
+.icon-danger {
+	color: var(--color-danger)
+}
+
+.icon-success {
+	color: var(--color-success)
+}
+
+.icon-info {
+	color: var(--color-info)
+}

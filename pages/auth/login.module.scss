@@ -1,0 +1,142 @@
+.container{
+    flex: 1;
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem 1rem 1rem;
+    max-width: 100%;
+
+    @media (min-width: 768px) {
+        justify-content: center;
+    }
+
+    @media (orientation: landscape) and (max-height: 420px) {
+        flex-direction: row;
+        align-items: stretch;
+
+        & > * {
+        }
+    }
+}
+
+.header{
+    max-width: 20rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+
+    h1{
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        opacity: 0.4;
+        font-weight: normal;
+        text-align: center;
+    }
+
+    p{
+        opacity: 0.8;
+        text-align: center;
+    }
+}
+
+.box{
+    background-color: var(--color-foreground);
+    border: var(--color-border) 1px solid;
+    border-radius: var(--rounded);
+    max-width: 20rem;
+    width: 100%;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer{
+    background-color: var(--color-background);
+    border: var(--color-border) 1px solid;
+    border-radius: var(--rounded);
+    max-width: 20rem;
+    width: 100%;
+    padding: 2rem;
+    text-align: center;
+    justify-content: center;
+    justify-items: center;
+    justify-items: center;
+    align-items: center;
+    display: flex;
+
+    @media (orientation: landscape) and (max-height: 420px) {
+        border: none;
+        width: auto;
+        align-items: flex-end;
+    }
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.footerPage{
+    max-width: 100%;
+    width: 40rem;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    padding: 1rem 2rem;
+
+    @media (orientation: landscape) and (max-height: 420px) {
+        display: none;
+    }
+}
+
+.footerNav{
+    max-width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.bgGradient{
+    background: linear-gradient(var(--color-main-two), var(--color-main-one));
+    flex: 1;
+    display: flex;
+}
+
+.loginContainer{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--color-background);
+    max-width: 100%;
+
+    @media (orientation: landscape) and (max-height: 420px) {
+        flex: 1;
+    }
+
+    @media (max-width: 767px) {
+        flex: 1;
+    }
+
+    @media (min-width: 768px) {
+        min-width: 50%;
+        margin: 2rem;
+        border-radius: 2rem;
+    }
+
+    @media (min-width: 1024px) {
+        min-width: auto;
+        max-width: 40vw;
+    }
+}

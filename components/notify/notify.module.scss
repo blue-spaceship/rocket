@@ -1,0 +1,111 @@
+.manager{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    transition: all 500ms linear;
+    gap: .75rem;
+    z-index: 9999;
+    width: 100%;
+    box-sizing: border-box;
+
+    @media ( max-width:767px ) {
+        left: 50%;
+        transform: translateX(-50%);
+        top: 1rem;
+        max-width: 40rem;
+    }
+
+    @media ( min-width:768px ) {
+        left: auto;
+        right: 2rem;
+        top: auto;
+        bottom: 2rem;
+        max-width: 30rem;
+        gap: 1rem;
+    }
+
+    @media ( min-width:1200px ) {
+        left: auto;
+        right: 2rem;
+        bottom: auto;
+        top: 2rem;
+    }
+}
+
+    
+.notify{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap: .2rem;
+    background-color: var(--color-foreground-two);
+    border-radius: 1rem;
+    transition: all 1s ease-in-out;
+    z-index: 9999;
+
+    @media ( max-width:767px ) {
+        margin: 0 1rem;
+    }
+}
+
+.closing{
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+.info {
+    background-color: var(--color-info);
+    color: var(--color-text-contrast);
+}
+.success {
+    background-color: var(--color-success);
+    color: var(--color-text-contrast);
+}
+.warning {
+    background-color: var(--color-warning);
+    color: var(--color-text-contrast);
+}
+.danger {
+    background-color: var(--color-danger);
+    color: var(--color-text-contrast);
+}
+
+.notifyBar{
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    gap: .5rem;
+    align-items: center;
+}
+
+.notifyCloses{
+    margin: 0px;
+    padding: 0.4rem;
+    border: none;
+    display: flex;
+    font-size: 0.5rem;
+    background-color: white;
+    align-items: center;
+    place-items: center;
+    border-radius: 100%;
+    cursor: pointer;
+    
+    .notifyCloses:hover{
+        background-color: rgba(0,0,0,.1);
+        color: #ffffff;
+    }
+}
+
+.notifyCloses > *{
+    font-size: 0.7rem;
+}
+
+.notifyTitle{
+    font-size: 1rem;
+    flex: 1;
+}
+
+.notifyDescription{
+    font-size: 1rem;
+    opacity: .8;
+}
