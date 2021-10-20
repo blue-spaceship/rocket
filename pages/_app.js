@@ -12,7 +12,7 @@ import Badge from '/components/dev/badge'
 
 import '../styles/globals.scss'
 
-export default function App({ Component, pageProps }) {
+function App({ Component, pageProps }) {
 	return (
 		<>
 			<Head>
@@ -77,3 +77,5 @@ function Auth({ config, children}) {
 	
 	return <Loading />
 }
+
+export default App
