@@ -7,13 +7,9 @@ class MyDocument extends Document {
 
 	
     isProduction (){
-		console.log('next',process.env.NEXT_PUBLIC_VERCEL_ENV);
-		console.log('node',process.env.NODE_ENV);
-
 		if(process.env.NEXT_PUBLIC_VERCEL_ENV){			
 			return process.env.NEXT_PUBLIC_VERCEL_ENV === 'production'
 		}
-
 		if(process.env.NODE_ENV){
 			return process.env.NODE_ENV === 'production'
 		}

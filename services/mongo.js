@@ -14,7 +14,7 @@ export const MongoMiddleware = handler => async (req, res) => {
     }
 
     try {
-        mongoose.connect( getMongoURI() , {} , error => {
+        mongoose.connect( getMongoURI() , options , error => {
             if(error) throw error
             console.error(`Connected on ${ process.env.NEXT_PUBLIC_VERCEL_ENV || process.env.NODE_ENV }!`)
         })
@@ -32,7 +32,7 @@ export const Mongo = handler => {
     }
 
     try {
-        mongoose.connect( getMongoURI() , {} , error => {
+        mongoose.connect( getMongoURI() , options, error => {
             if(error) throw error
             console.error(`Connected on ${ process.env.NEXT_PUBLIC_VERCEL_ENV || process.env.NODE_ENV }!`)
         })
@@ -53,5 +53,8 @@ function getMongoURI(){
     ){
         MONGO_URI += `-${ process.env.NEXT_PUBLIC_VERCEL_ENV || process.env.NODE_ENV }`
     }
+
+    console.log(MONGO_URI)
+
     return MONGO_URI
 }
