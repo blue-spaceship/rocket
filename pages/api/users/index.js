@@ -21,4 +21,5 @@ async function handler({ method, query }, res){
         res.status(507).end('Method not allowed')
     }
 }
+
 export default handler

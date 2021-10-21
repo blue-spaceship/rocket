@@ -8,7 +8,7 @@ export async function Send (template_id, to, data){
   const msg = {
     template_id,
     to,
-    from: "Willian Rodrigues <okaywillian@gmail.com>",
+    from: "Willian Rodrigues <noreply@minery.com.br>",
     dynamicTemplateData: data
   }
 
@@ -31,6 +31,6 @@ export async function Test(){
 export default Send
 
 export const Templates = {
-  'newUser': 'd-dfe9679126da4674819e2d881b694caf',
-  'forgetPassword' : 'd-39fd27459bb245e4bbe1bf31612e4a79'
+  'newUser': 'd-ea0da27cffce4fdfa388c5e94a1d0495',
+  'forgetPassword' : 'd-716038270ce342e48821fcdfb990e98f'
 }

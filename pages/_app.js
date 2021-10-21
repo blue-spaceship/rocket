@@ -15,7 +15,6 @@ import '../styles/globals.scss'
 
 function App({ Component, pageProps }) {
 	const AuthRules = Roles[ useRouter().pathname ]
-
 	return (
 		<>
 			<Head>

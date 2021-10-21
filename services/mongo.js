@@ -1,6 +1,5 @@
 import mongoose from 'mongoose'
 
-
 const options = {
     useUnifiedTopology: true,
     useFindAndModify: false,

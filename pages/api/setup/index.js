@@ -4,7 +4,7 @@ import { Test as MailTest } from '/services/mail'
 import { Test as PipelessTest } from '../../../services/pipeless'
 
 const handler = async (req, res) => {
-    if(req.method === 'GET' && process.env.NEXT_INSTALL_CONFIG === 'true'){        
+    if(req.method === 'GET' && process.env.NEXT_INSTALL_CONFIG === 'true'){
         const data = {
             MONGO: await verifyMongo(),
             SECRET: verifySecret(),
