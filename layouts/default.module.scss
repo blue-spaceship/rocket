@@ -10,9 +10,9 @@
 
 .bar{
     display: flex;
-    width: 24rem;
     padding: 2rem;
     flex-direction: column;
+
     a{
         padding: 1rem;
 
@@ -20,6 +20,10 @@
             color: var(--color-text-contrast);
             background-color: var(--color-main-one);
         }
+    }
+
+    @media (min-width: 768px) {
+        width: 24rem;
     }
 }
 

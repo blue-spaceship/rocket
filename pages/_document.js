@@ -7,6 +7,9 @@ class MyDocument extends Document {
 
 	
     isProduction (){
+		console.log('Vercel Env',process.env.NEXT_PUBLIC_VERCEL_ENV);
+		console.log('Node env',process.env.NODE_ENV);
+		console.log('Verify',(process.env.NEXT_PUBLIC_VERCEL_ENV && process.env.NEXT_PUBLIC_VERCEL_ENV === 'production') || ( process.env.NODE_ENV && process.env.NODE_ENV === 'production'));
 		return (process.env.NEXT_PUBLIC_VERCEL_ENV && process.env.NEXT_PUBLIC_VERCEL_ENV === 'production') || ( process.env.NODE_ENV && process.env.NODE_ENV === 'production')
 	}
 
