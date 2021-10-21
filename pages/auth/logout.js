@@ -8,3 +8,5 @@ export default function Logout(){
     }, [])
     return <></>
 }
+
+Logout.noLayout = true

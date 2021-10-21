@@ -1,0 +1,17 @@
+.container{
+    display: flex;
+    flex: 1;
+}
+
+.bar{
+    display: flex;
+    width: 24rem;
+    padding: 2rem;
+    flex-direction: column;
+}
+
+.display{
+    display: flex;
+    flex:1;
+    padding: 2rem;
+}

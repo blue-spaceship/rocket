@@ -32,7 +32,7 @@ const Login = () => {
                 <div className={ Styles.container }>
                     <header className={ Styles.header }>
                         <Link href="/">
-                            <a><Image src="/assets/icons/icon-256x256.png" alt="Blue Crystal" width={128} height={128} quality={100} objectFit="contain" /></a>
+                            <a><Image src="/assets/icons/logo.svg" alt="Blue Crystal" width={128} height={128} quality={100} objectFit="contain" /></a>
                         </Link>
                         <h1>acesso com credencial</h1>
                         <p>A credencial da acesso a área de gestão, controle e monitoramento do Fluorite.</p>
@@ -73,10 +73,6 @@ const Login = () => {
     )
 }
 
-
-Login.auth = {
-    loggedIn: false,
-    unauthorized: '/'
-}
+Login.noLayout = true
 
 export default Login

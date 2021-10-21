@@ -3,8 +3,8 @@ import cloudinary from 'cloudinary'
 export const Test = async () => {
     return await cloudinary.v2.api.ping().then(response=>{
         return true
-    }).catch(err=>{
-        console.log(err);
+    }).catch(error=>{
+        console.error(error);
         return false
     })
 }
@@ -13,7 +13,7 @@ const Upload = async (pathBase, file) =>{
     const url = await cloudinary.v2.uploader.upload(file.path, { folder: `${ getPath() }/${pathBase}` },
         function(error, result) {
             if(error){
-                console.log(error);
+                console.error(error);
             }else{
                 return result
             }

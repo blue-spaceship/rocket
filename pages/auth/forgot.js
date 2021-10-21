@@ -64,10 +64,6 @@ function Page(){
     )
 }
 
-
-Page.auth = {
-    loggedIn: false,
-    unauthorized: '/'
-}
+Page.noLayout = true
 
 export default Page

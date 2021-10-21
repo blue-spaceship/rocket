@@ -63,13 +63,6 @@ html {
 body {
 	height: 100%;
 	display: block;
-
-	&.noproduction{
-		--color-main-one: #FF0077;
-		--color-main-one-dark: #cf0061;
-		--color-main-two: #F76BEE;
-		--color-main-two-dark: #cf43c6;
-	}
 }
 
 #__next {

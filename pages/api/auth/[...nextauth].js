@@ -61,9 +61,6 @@ export default NextAuth({
                 new _.Subject(user._id, _.ObjectTypes.user),
                 new _.Relationship(_.RelationshipTypes.loggedIn, null, true),
                 new _.Subject(process.env.APP_NAME, _.ObjectTypes.app) ).Save()
-        },
-        updateUser({user}){
-            console.log("updated");
         }
     }
 
