@@ -1,20 +1,19 @@
 import mongoose from 'mongoose'
 
-
-const options = {
-    useUnifiedTopology: true,
-    useFindAndModify: false,
-    useCreateIndex: true,
-    useNewUrlParser: true
-}
-
 export const MongoMiddleware = handler => async (req, res) => {
     if(mongoose.connections[0].readyState){
         return handler(req, res)
     }
 
+    const options = {
+        useUnifiedTopology: true,
+        useFindAndModify: false,
+        useCreateIndex: true,
+        useNewUrlParser: true
+    }
+
     try {
-        mongoose.connect( getMongoURI() , options , error => {
+        mongoose.connect( getMongoURI() , {} , error => {
             if(error) throw error
             console.error(`Connected on ${ process.env.NEXT_PUBLIC_VERCEL_ENV || process.env.NODE_ENV }!`)
         })
@@ -31,8 +30,15 @@ export const Mongo = handler => {
         return handler()
     }
 
+    const options = {
+        useUnifiedTopology: true,
+        useFindAndModify: false,
+        useCreateIndex: true,
+        useNewUrlParser: true
+    }
+
     try {
-        mongoose.connect( getMongoURI() , options, error => {
+        mongoose.connect( getMongoURI() , {} , error => {
             if(error) throw error
             console.error(`Connected on ${ process.env.NEXT_PUBLIC_VERCEL_ENV || process.env.NODE_ENV }!`)
         })
