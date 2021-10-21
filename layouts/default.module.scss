@@ -1,6 +1,11 @@
 .container{
     display: flex;
     flex: 1;
+    flex-direction: column;
+
+    @media (min-width: 768px) {
+        flex-direction: row;
+    }
 }
 
 .bar{
@@ -8,6 +13,14 @@
     width: 24rem;
     padding: 2rem;
     flex-direction: column;
+    a{
+        padding: 1rem;
+
+        &:hover{
+            color: var(--color-text-contrast);
+            background-color: var(--color-main-one);
+        }
+    }
 }
 
 .display{
