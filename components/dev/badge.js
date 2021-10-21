@@ -1,8 +1,16 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Head from 'next/head'
 
 export const Badge = () => {
-    const noProduction = ( process.env.NEXT_PUBLIC_VERCEL_ENV && process.env.NEXT_PUBLIC_VERCEL_ENV !== 'production') || ( process.env.NODE_ENV && process.env.NODE_ENV !== 'production')
+    let noProduction = true 
+
+    if(noProduction === null && process.env.NEXT_PUBLIC_VERCEL_ENV){
+        noProduction = process.env.NEXT_PUBLIC_VERCEL_ENV !== 'production'
+    }else{
+        if(process.env.NODE_ENV){
+            noProduction = process.env.NODE_ENV !== 'production'
+        }
+    }
     
     useEffect(() => {
         if(noProduction){
