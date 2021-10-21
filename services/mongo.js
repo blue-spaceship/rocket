@@ -62,5 +62,5 @@ function getMongoURI(){
 
     console.log(MONGO_URI)
 
-    return MONGO_URI
+    return `${MONGO_URI}?retryWrites=true&w=majority`
 }
