@@ -1,10 +1,23 @@
 {
     "name": "Blue Crystal Dev",
     "short_name": "Blue Crystal Dev",
-    "lang": "pt-BR",
+    "dir": "ltr",
+    "categories": "business,productivity",
+    "lang": "pt",
+    "orientation": "any",
+    "scope": "/",
     "start_url": "/",
     "display": "standalone",
     "theme_color": "#FF0077",
+    "shortcuts": [
+        {
+          "name": "Gerenciar Usuários",
+          "short_name": "Usuários",
+          "description": "Abre a gestão de usuários",
+          "url": "/manager/users",
+          "icons": [{ "src": "/icons/icon-user-192x192.png", "sizes": "192x192" }]
+        }
+    ],
     "icons": [
       {
         "src": "/dev/assets/icons/icon-192x192.png"
