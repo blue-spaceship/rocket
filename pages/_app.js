@@ -1,8 +1,9 @@
 import Head from 'next/head'
-import Router from 'next/router'
+import { useRouter } from 'next/router'
 
 import { useEffect } from 'react'
 import { useSession, SessionProvider, signIn } from "next-auth/react"
+import Roles from '../components/auth/roles'
 
 import Notify from '/components/notify'
 
@@ -12,7 +13,9 @@ import Badge from '/components/dev/badge'
 
 import '../styles/globals.scss'
 
-export default function App({ Component, pageProps }) {
+function App({ Component, pageProps }) {
+	const AuthRules = Roles[ useRouter().pathname ]
+
 	return (
 		<>
 			<Head>
@@ -22,10 +25,10 @@ export default function App({ Component, pageProps }) {
 			<Notify />
 			
 			<SessionProvider session={ pageProps.session }>
-				<Layout>					
+				<Layout ignore={ Component.noLayout }>
 				<Badge />
-				{ Component.auth ? (
-					<Auth config={ Component.auth }>
+				{ AuthRules ? (
+					<Auth config={ AuthRules }>
 						<Component {...pageProps} />
 					</Auth>
 				) : (
@@ -71,9 +74,11 @@ function Auth({ config, children}) {
 		if(config.loggedIn && isAllowed()){
 			return children
 		}else{
-			Router.push(config.unauthorized || '/')
+			useRouter().push(config.unauthorized || '/')
 		}
 	}
 	
 	return <Loading />
 }
+
+export default App

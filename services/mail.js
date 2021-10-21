@@ -4,18 +4,7 @@ if(process.env.SENDGRID_API_KEY){
   sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 }
 
-export const Test = async () => {
-  const msg = {
-    to: 'w.almeida.w@gmail.com',
-    from: 'okaywillian@gmail.com',
-    subject: 'Teste de Integração Sendgrid',
-    content: [ { type: 'text/plain', value: "Hello world" } ]
-  }
-
-  return sgMail.send(msg)
-}
-
-export default async (template_id, to, data) => {
+export async function Send (template_id, to, data){
   const msg = {
     template_id,
     to,
@@ -27,6 +16,19 @@ export default async (template_id, to, data) => {
     return sgMail.send(msg)
   }
 }
+
+export async function Test(){
+  const msg = {
+    to: 'w.almeida.w@gmail.com',
+    from: 'okaywillian@gmail.com',
+    subject: 'Teste de Integração Sendgrid',
+    content: [ { type: 'text/plain', value: "Hello world" } ]
+  }
+
+  return sgMail.send(msg)
+}
+
+export default Send
 
 export const Templates = {
   'newUser': 'd-dfe9679126da4674819e2d881b694caf',
