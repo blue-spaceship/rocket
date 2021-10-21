@@ -4,7 +4,7 @@ import Head from 'next/head'
 export const Badge = () => {
     let noProduction = true 
 
-    if(noProduction === null && process.env.NEXT_PUBLIC_VERCEL_ENV){
+    if(process.env.NEXT_PUBLIC_VERCEL_ENV){
         noProduction = process.env.NEXT_PUBLIC_VERCEL_ENV !== 'production'
     }else{
         if(process.env.NODE_ENV){
