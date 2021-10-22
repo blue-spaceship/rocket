@@ -7,14 +7,15 @@ import Axios from 'axios'
 
 import Styles from './login.module.scss'
 
-function Page(){
+function Page({ setLoading }){
     const resetPassword = async (event) => {
         event.preventDefault()
-
+        setLoading(true)
         Axios.post(`/api/auth/passwordReset`, { 
             reference: event.target.reference.value
         }).then(result=>{
             window.postMessage({ messaging: true, message: 'Uma nova senha foi enviada para seu e-mail.', type: 'success'  })
+            setLoading(false)
             Router.push('/login')
         }).catch(error=>{
             if(error.response.status === 404){
@@ -22,6 +23,8 @@ function Page(){
             }else{
                 window.postMessage({ messaging: true, message: 'Falha ao tentar resetar a senha', type: 'danger'  })
             }
+        }).finally(()=>{
+            setLoading(false)
         })
     }
 

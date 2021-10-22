@@ -1,20 +1,25 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useSession, SessionProvider, signIn } from "next-auth/react"
 import Roles from '../components/auth/roles'
 
 import Notify from '/components/notify'
+import Loading from '/components/notify/loading'
 
 import Layout from '/layouts/default'
-import Loading from '/components/auth/loading'
 import Badge from '/components/dev/badge'
 
 import '../styles/globals.scss'
 
 function App({ Component, pageProps }) {
 	const AuthRules = Roles[ useRouter().pathname ]
+	const [ loading, setLoading ] = useState(false)
+
+	function changeLoading(value){
+		setLoading(value)
+	}
 
 	return (
 		<>
@@ -27,12 +32,13 @@ function App({ Component, pageProps }) {
 			<SessionProvider session={ pageProps.session }>
 				<Layout ignore={ Component.noLayout }>
 				<Badge />
+				<Loading visible={ loading } />
 				{ AuthRules ? (
 					<Auth config={ AuthRules }>
-						<Component {...pageProps} />
+						<Component {...pageProps} setLoading={changeLoading} />
 					</Auth>
 				) : (
-					<Component {...pageProps} />
+					<Component {...pageProps} setLoading={changeLoading} />
 				)}
 				</Layout>
 			</SessionProvider>

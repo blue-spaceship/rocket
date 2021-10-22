@@ -7,12 +7,14 @@ import { signIn } from 'next-auth/react'
 
 import Styles from './login.module.scss'
 
-const Login = () => {
+const Login = ({setLoading}) => {
     const login = async (event) => {
         event.preventDefault()
+        setLoading(true)
 
         const data = await signIn( 'credentials', { username: event.target.username.value, password : event.target.password.value, redirect: false })
 
+        setLoading(false)
         if(data.status === 200){
             window.postMessage({ messaging: true, message: 'Login realizado com sucesso.', type: 'success'  })
             Router.push('/')
@@ -23,7 +25,7 @@ const Login = () => {
         }
     }
 
-    const [ show, setShow ] = React.useState('show')
+    const [ show, setShow ] = React.useState(false)
 
     return (
         <div className={ Styles.bgGradient }>
