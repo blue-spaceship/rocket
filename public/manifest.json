@@ -15,7 +15,7 @@
           "short_name": "Usuários",
           "description": "Abre a gestão de usuários",
           "url": "/manager/users",
-          "icons": [{ "src": "/icons/icon-user-192x192.png", "sizes": "192x192" }]
+          "icons": [{ "src": "/assets/icons/icon-user-192x192.png", "sizes": "192x192" }]
         }
     ],
     "icons": [

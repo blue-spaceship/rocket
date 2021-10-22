@@ -29,17 +29,17 @@ export const Badge = () => {
             <link rel="apple-touch-icon" sizes="384x384" href="/dev/assets/icons/icon-384x384.png" />
             <link rel="icon" sizes="512x512" href="/dev/assets/icons/icon-512x512.png" />
             <link rel="apple-touch-icon" sizes="512x512" href="/dev/assets/icons/icon-512x512.png" />
-            <meta name="theme-color" content="#FF0077" />
-            <meta name="msapplication-navbutton-color" content="#FF0077" />
+            <meta name="theme-color" content="#6F9EFB" />
+            <meta name="msapplication-navbutton-color" content="#6F9EFB" />
         </Head>
 
         <style jsx global>                
             {
                 `body.noproduction{
-                    --color-main-one: #FF0077;                    
-                    --color-main-one-dark: #cf0061;
-                    --color-main-two: #F76BEE;
-                    --color-main-two-dark: #cf43c6;
+                    --color-main-one: #6F9EFB;
+                    --color-main-one-dark: #467AE1;
+                    --color-main-two: #F962A3;
+                    --color-main-two-dark: #E65A96;
                 }`
             }
         </style>

@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 
 export default function Logout(){
     useEffect(()=>{
-        window.postMessage({ messaging: true, message: 'Deslogado', type: 'default'  });
+        window.postMessage({ messaging: true, message: 'Deslogado', type: 'info'  });
         signOut({ callbackUrl: '/' })
     }, [])
     return <></>

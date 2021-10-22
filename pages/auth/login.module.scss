@@ -15,9 +15,6 @@
     @media (orientation: landscape) and (max-height: 420px) {
         flex-direction: row;
         align-items: stretch;
-
-        & > * {
-        }
     }
 }
 
@@ -47,7 +44,7 @@
 }
 
 .box{
-    background-color: var(--color-foreground);
+    background-color: var(--color-foreground-one);
     border: var(--color-border) 1px solid;
     border-radius: var(--rounded);
     max-width: 20rem;
@@ -109,7 +106,7 @@
 }
 
 .bgGradient{
-    background: linear-gradient(var(--color-main-two), var(--color-main-one));
+    background: linear-gradient(to right, var(--color-main-two), var(--color-main-one));
     flex: 1;
     display: flex;
 }

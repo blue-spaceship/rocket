@@ -46,7 +46,7 @@ export const Notify = () => {
 
     const handleMessage = (event) => {
         if(event.data.messaging && event.data.message){
-            const elm = <NotifyItem key={`notify-${ (new Date().getTime()) }`} title="Notificação" type={ event.data.type }>{event.data.message}</NotifyItem>
+            const elm = <NotifyItem key={`notify-${ (new Date().getTime()) }`} title={ event.data.title || null } type={ event.data.type }>{event.data.message}</NotifyItem>
             line.push(elm)
             setLine([...line])
         }

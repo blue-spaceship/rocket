@@ -9,7 +9,7 @@ const handler = ({ data }) => {
                 <title>Setup Application</title>
             </Head>            
             <div className={ Styles.container }>
-                <section>
+                <section className={ Styles.subcontainer }>
                     <header className={ Styles.header }>
                         <h1>Setup da aplicação</h1>
                         <p>Certifique-se de que todas as variáveis ambiente estão configuradas e as conexões e integrações funcionando conforme o esperado antes de começar.</p>
@@ -56,12 +56,12 @@ const handler = ({ data }) => {
                         </section>
                     </section>
                 </section>
-                <section>
+                <section className={ Styles.subcontainer }>
                     <header className={ Styles.header }>
                         <h2>Integrações</h2>
                         <p>Certifique-se de que todas as variáveis ambiente estão configuradas e as conexões e integrações funcionando conforme o esperado antes de começar.</p>
                     </header>
-                    <section className={ Styles.display } style={{ gridTemplateColumns: '1fr 1fr' }}>
+                    <section className={ Styles.display }>
                         <section className={ Styles.card }>
                             <header>
                                 <h3>Sendgrid</h3>
@@ -141,5 +141,7 @@ handler.getInitialProps = async ({ req }) => {
         return { data: {} }
     }
 }
+
+handler.noLayout = true
 
 export default handler

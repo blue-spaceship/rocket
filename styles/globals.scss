@@ -14,7 +14,7 @@
 	--color-border: #00000013;
 
 	--color-background: #ffffff;
-	--color-foreground: #fafafa;
+	--color-foreground-one: #fafafa;
 	--color-foreground-two: #eeeeee;
 
 	--shadow: rgba(0, 0, 0, 0.06);
@@ -23,7 +23,7 @@
 		--color-text: #ffffff;
 		--color-border: #101426;
 		--color-background: #151A30;
-		--color-foreground: #222B45;
+		--color-foreground-one: #222B45;
 		--color-foreground-two: #1A2138;
 	}
 
@@ -175,7 +175,7 @@ a {
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	background-color: var(--color-main-one);
-	background: radial-gradient(var(--color-main-two), var(--color-main-one));
+	background: linear-gradient(to right, var(--color-main-two), var(--color-main-one));
 	background-size: 250px 250px;
 	background-position: center center;
 
@@ -210,6 +210,14 @@ a {
 	@media (min-width: 768px) {
 		max-width: 80%;
 	}
+}
+
+.divider{
+	height: 1px;
+	background-color: var(--color-border);
+	opacity: .5;
+	border-radius: 3px;
+	margin: 0 .5rem;
 }
 
 
