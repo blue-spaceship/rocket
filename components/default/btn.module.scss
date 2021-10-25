@@ -1,0 +1,84 @@
+.button{
+	user-select: none;
+	display: flex;
+	height: 4rem;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	border-radius: var(--rounded);
+	cursor: pointer;
+	transition: all 300ms ease;
+	outline: none;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	padding: 1.5rem 3rem ;
+    border: 1px solid transparent;
+
+	@media (min-width:1025px) {
+		height: 3.5rem;
+		padding: 1rem 3rem;
+	}
+
+	&:hover{
+		background-color: var(--color-default);
+	}
+
+	&[data-type*=info]{
+		border-color: var(--color-info);
+		background-color: var(--color-background);
+		color: var(--color-info);
+
+		&:hover{
+			background-color: var(--color-info);
+			color: var(--color-background);
+		}
+	}
+
+	&[data-type*=success]{
+		border-color: var(--color-success);
+		background-color: var(--color-background);
+		color: var(--color-success);
+
+		&:hover{
+			background-color: var(--color-success);
+			color: var(--color-background);
+		}
+	}
+
+	&[data-type*=warning]{
+		border-color: var(--color-warning);
+		background-color: var(--color-background);
+		color: var(--color-warning);
+
+		&:hover{
+			background-color: var(--color-warning);
+			color: var(--color-background);
+		}
+	}
+
+	&[data-type*=danger]{
+		border-color: var(--color-danger);
+		background-color: var(--color-background);
+		color: var(--color-danger);
+
+		&:hover{
+			background-color: var(--color-danger);
+			color: var(--color-background);
+		}
+	}
+}
+
+.buttonIcon {
+	composes: button;
+	aspect-ratio: 1/1;
+	overflow: hidden;
+	height: 4rem;
+	width: 4rem;
+	flex-shrink: 4rem;
+    padding: 0;
+
+	@media (min-width:1025px) {
+		height: 3.5rem;
+		width: 3.5rem;
+		flex-shrink: 3.5rem;
+	}
+}

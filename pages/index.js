@@ -1,11 +1,15 @@
+import { Header, Main, Contant } from "/components/default/page"
+
 const Page = ({ setLoading }) => {
 	return (
-		<div style={ { flex: 1, display: 'flex', flexDirection: 'column', gap: '1rem'} }>
-			<h1>Blue Crystal</h1>
-			<div style={ { display: 'flex', gap: '1rem' }}>
+		<Main>
+			<Header>
+				<h2>Blue Crystal</h2>
+			</Header>
+			<Contant>
 				Oi!
-			</div>
-		</div>
+			</Contant>
+		</Main>
 	)
 }
 

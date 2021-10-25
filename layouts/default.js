@@ -30,14 +30,14 @@ function Layout({ ignore, children }){
                     </div>
                     <menu className={ Styles.menu }>
                         <Auth auth={false}>
-                            <Link href="/login"><a onClick={()=>{ closeToggle() }} tabIndex="0">Login</a></Link>
+                            <Link href="/login"><a onClick={()=>{ closeToggle() }} className={ Styles.low } tabIndex="0">Login</a></Link>
                             <div className="divider"></div>
                         </Auth>
                         <Link href="/"><a onClick={()=>{ closeToggle() }} tabIndex="1">Home</a></Link>
                         <Auth>
                             <Link href="/manager/users"><a onClick={()=>{ closeToggle() }} tabIndex="2">Usuários</a></Link>
                             <div className="divider"></div>
-                            <Link href="/auth/logout"><a onClick={()=>{ closeToggle() }} tabIndex="3">Logout</a></Link>
+                            <Link href="/auth/logout"><a onClick={()=>{ closeToggle() }} tabIndex="3" className={ Styles.low }>Logout</a></Link>
                         </Auth>
                     </menu>
                 </aside>

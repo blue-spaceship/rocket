@@ -13,6 +13,18 @@ export async function getUsers( args ){
     } )
 }
 
+export async function getUser( id ){
+    return Mongo( async () => {
+        try {
+            const item = await User.findById( id )
+            return item ? JSON.parse(JSON.stringify(item)) : null
+        } catch (error) {
+            console.error(error);
+            return {}
+        }
+    } )
+}
+
 async function handler({ method, query }, res){
     if(method === 'GET'){
         const list = await getUsers( query )

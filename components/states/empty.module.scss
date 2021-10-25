@@ -1,5 +1,5 @@
 .box{
-    background-color: var(--color-foreground-one);
+    background-color: var(--color-foreground-two);
     flex: 1;
     display: flex;
     align-items: center;
@@ -7,4 +7,5 @@
     text-align: center;
     justify-content: center;
     padding: 2rem;
+    border-radius: var(--rounded);
 }

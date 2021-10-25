@@ -23,7 +23,6 @@
         gap: 1rem;
     }
 }
-
     
 .notify{
     display: flex;
@@ -110,7 +109,7 @@
     border-radius: 100%;
     // border: 1px solid var(--shadow);
     background-color: var(--color-text);
-    color: var(--color-text-contrast);
+    color: var(--color-background);
     display: flex;
     overflow: hidden;
     align-items: center;

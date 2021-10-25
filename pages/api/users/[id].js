@@ -1,18 +1,7 @@
 import { Mongo } from '/services/mongo'
 import { User } from '/models'
 import Auth from '/components/auth/api'
-
-export async function getUser( id ){
-    return Mongo( async () => {
-        try {
-            const item = await User.findById( id )
-            return item ? JSON.parse(JSON.stringify(item)) : null
-        } catch (error) {
-            console.error(error);
-            return {}
-        }
-    } )
-}
+import { getUser } from './'
 
 async function updateUser( id, changes ){
     return Mongo( async () => {
