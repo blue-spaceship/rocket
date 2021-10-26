@@ -1,4 +1,4 @@
-import { Header, Main, Contant } from "/components/default/page"
+import { Header, Main, Content } from "/components/default/page"
 
 const Page = ({ setLoading }) => {
 	return (
@@ -6,9 +6,7 @@ const Page = ({ setLoading }) => {
 			<Header>
 				<h2>Blue Crystal</h2>
 			</Header>
-			<Contant>
-				Oi!
-			</Contant>
+			<Content>Oi!</Content>
 		</Main>
 	)
 }

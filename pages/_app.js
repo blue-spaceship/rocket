@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 
 import { useEffect, useState } from 'react'
 import { useSession, SessionProvider, signIn } from "next-auth/react"
-import Roles from '../components/auth/roles'
+import Rules from '../components/auth/rules'
 
 import Notify from '/components/notify'
 import Loading from '/components/notify/loading'
@@ -14,7 +14,8 @@ import Badge from '/components/dev/badge'
 import '../styles/globals.scss'
 
 function App({ Component, pageProps }) {
-	const AuthRules = Roles[ useRouter().pathname ]
+
+	const AuthRules = Rules[ useRouter().pathname ]
 	const [ loading, setLoading ] = useState(false)
 
 	function changeLoading(value){
@@ -56,7 +57,7 @@ function Auth({ config, children}) {
   
 	useEffect(() => {
 	  if (status === 'loading') return // Do nothing while loading
-	  if (!isUser && config.loggedIn) signIn() // If not authenticated, force log in
+	  if (!isUser && config.auth) signIn() // If not authenticated, force log in
 	}, [isUser, status])
   
 	const isAllowed = () => {
@@ -71,13 +72,13 @@ function Auth({ config, children}) {
 	}
   
 	if(status === "unauthenticated"){
-		if(!config.loggedIn){
+		if(!config.auth){
 			return children
 		}
 	}
 
 	if(status === "authenticated"){
-		if(config.loggedIn && isAllowed()){
+		if(config.auth && isAllowed()){
 			return children
 		}else{
 			useRouter().push(config.unauthorized || '/')

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import Auth from '/components/auth/acm'
+import Rules from '/components/auth/rules'
 
 import Styles from './default.module.scss'
 
@@ -34,8 +35,10 @@ function Layout({ ignore, children }){
                             <div className="divider"></div>
                         </Auth>
                         <Link href="/"><a onClick={()=>{ closeToggle() }} tabIndex="1">Home</a></Link>
+                        <Auth { ...Rules['/manager/users'] }>
+                            <Link href="/manager/users"><a onClick={()=>{ closeToggle() }}>Usuários</a></Link>
+                        </Auth>
                         <Auth>
-                            <Link href="/manager/users"><a onClick={()=>{ closeToggle() }} tabIndex="2">Usuários</a></Link>
                             <div className="divider"></div>
                             <Link href="/auth/logout"><a onClick={()=>{ closeToggle() }} tabIndex="3" className={ Styles.low }>Logout</a></Link>
                         </Auth>

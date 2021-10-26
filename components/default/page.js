@@ -8,12 +8,17 @@ export const Header = ({ children }) => {
     return <header className={ Styles.header }>{ children }</header>
 }
 
-export const Contant = ({ children }) => {
-    return <session className={ Styles.contant }>{children}</session>
+export const Content = ({ children }) => {
+    return <session className={ Styles.content }>{children}</session>
+}
+
+export const Panel = ({ children }) => {
+    return <section className={ Styles.panel }>{ children }</section>
 }
 
 export default {
     Header,
     Main,
-    Contant
+    Content,
+    Panel
 }

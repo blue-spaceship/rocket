@@ -1,4 +1,4 @@
-import { Header, Main, Contant } from "/components/default/page"
+import { Header, Main, Content } from "/components/default/page"
 import { getUser } from "/pages/api/users"
 
 export const getServerSideProps = async ({ query }) => {
@@ -16,7 +16,7 @@ const handler = ({ data }) => {
                 <Header>
                     <h2>Usuário</h2>
                 </Header>
-                <Contant>{ JSON.stringify(data)}</Contant>
+                <Content>{ JSON.stringify(data)}</Content>
             </>
         </Main>
     )

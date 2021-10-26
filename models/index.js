@@ -13,7 +13,7 @@ var UserSchema = new Schema({
     roles: { type: String, lowercase: true, default: "default" },
     active: { type: Boolean, default: true },
     deleted: { type: Boolean, default: false, select: false },
-    deletedAt: { type: Date }
+    deletedAt: { type: Date, select: false }
 })
 
 UserSchema.pre(/^find/, function(next) {
@@ -31,3 +31,18 @@ UserSchema.post('save', user => {
 })
 
 export const User = mongoose.models.User || mongoose.model('User', UserSchema)
+
+var RoleSchema = new Schema({
+    slug: { type: String, lowercase: true, index: true, unique: true },
+    name: { type: String },
+    active: { type: Boolean, default: true },
+    deleted: { type: Boolean, default: false, select: false },
+    deletedAt: { type: Date }
+})
+
+RoleSchema.pre(/^find/, function(next) {
+    this.find({ deleted : false })
+    next()
+});
+
+export const Role = mongoose.models.Role || mongoose.model('Role', RoleSchema)

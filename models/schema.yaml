@@ -1,0 +1,344 @@
+openapi: 3.0.0
+info:
+    version: "0.1"
+    title: "Blue Crystal"
+servers:
+    - url: "http://localhost:3000/api"
+paths:
+    /users:
+        get:
+            summary: List all users
+            tags:
+                - user
+            responses:
+                "200":
+                    description: Get list of users
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    $ref: "#/components/schemas/User"
+                "401":
+                    $ref: "#/components/responses/NotAllowed"
+        post:
+            summary: Create a new user
+            tags:
+                - user
+            responses:
+                "200":
+                    description: Create a new user
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                $ref: "#/components/schemas/User"
+                "400":
+                    $ref: "#/components/responses/Error"
+                "401":
+                    $ref: "#/components/responses/NotAllowed"
+    /users/{id}:
+        get:
+            summary: Get a user by ID
+            parameters:
+                - name: id
+                  in: path
+                  description: User ID
+                  required: true
+                  schema:
+                      type: string
+            tags:
+                - user
+            responses:
+                "200":
+                    description: "A user object"
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                $ref: "#/components/schemas/User"
+                "401":
+                    $ref: "#/components/responses/NotAllowed"
+                "404":
+                    $ref: "#/components/responses/NotFound"
+        put:
+            summary: Update a user data
+            parameters:
+                - name: id
+                  in: path
+                  description: User ID
+                  required: true
+                  schema:
+                      type: string
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            $ref: "#/components/schemas/User"
+            tags:
+                - user
+            responses:
+                "200":
+                    description: "Updated user object"
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                $ref: "#/components/schemas/User"
+                "400":
+                    $ref: "#/components/responses/Error"
+                "401":
+                    $ref: "#/components/responses/NotAllowed"
+                "404":
+                    $ref: "#/components/responses/NotFound"
+        delete:
+            summary: Delete a user data
+            parameters:
+                - name: id
+                  in: path
+                  description: User ID
+                  required: true
+                  schema:
+                      type: string
+            tags:
+                - user
+            responses:
+                "200":
+                    description: "Delete user object"
+                "400":
+                    $ref: "#/components/responses/Error"
+                "401":
+                    $ref: "#/components/responses/NotAllowed"
+                "404":
+                    $ref: "#/components/responses/NotFound"
+        patch:
+            summary: Swipe user active to inactive or the other way around
+            parameters:
+                - name: id
+                  in: path
+                  description: User ID
+                  required: true
+                  schema:
+                      type: string
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            properties:
+                                active:
+                                    description: New active status
+                                    type: boolean
+                            required:
+                                - status
+            tags:
+                - user
+            responses:
+                "200":
+                    description: "User actived/inatived"
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/User"
+                "400":
+                    $ref: "#/components/responses/Error"
+                "401":
+                    $ref: "#/components/responses/NotAllowed"
+                "404":
+                    $ref: "#/components/responses/NotFound"
+    /users/roles:
+        get:
+            summary: List all roles
+            tags:
+                - roles
+            responses:
+                "200":
+                    description: Get list of roles
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    $ref: "#/components/schemas/Roles"
+                "401":
+                    $ref: "#/components/responses/NotAllowed"
+        post:
+            summary: Create a new roles
+            tags:
+                - roles
+            responses:
+                "200":
+                    description: Create a new roles
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                $ref: "#/components/schemas/Roles"
+                "400":
+                    $ref: "#/components/responses/Error"
+                "401":
+                    $ref: "#/components/responses/NotAllowed"
+    /users/roles/{id}:
+        get:
+            summary: Get a role by ID
+            parameters:
+                - name: id
+                  in: path
+                  description: Role ID
+                  required: true
+                  schema:
+                      type: string
+            tags:
+                - roles
+            responses:
+                "200":
+                    description: "A user type object"
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                $ref: "#/components/schemas/Roles"
+                "401":
+                    $ref: "#/components/responses/NotAllowed"
+                "404":
+                    $ref: "#/components/responses/NotFound"
+        put:
+            summary: Update a roles data
+            parameters:
+                - name: id
+                  in: path
+                  description: Role ID
+                  required: true
+                  schema:
+                      type: string
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            $ref: "#/components/schemas/Roles"
+            tags:
+                - roles
+            responses:
+                "200":
+                    description: "Updated roles object"
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                $ref: "#/components/schemas/Roles"
+                "400":
+                    $ref: "#/components/responses/Error"
+                "401":
+                    $ref: "#/components/responses/NotAllowed"
+                "404":
+                    $ref: "#/components/responses/NotFound"
+        delete:
+            summary: Delete a role data
+            parameters:
+                - name: id
+                  in: path
+                  description: Role ID
+                  required: true
+                  schema:
+                      type: string
+            tags:
+                - roles
+            responses:
+                "200":
+                    description: "Role deleted"
+                "400":
+                    $ref: "#/components/responses/Error"
+                "401":
+                    $ref: "#/components/responses/NotAllowed"
+                "404":
+                    $ref: "#/components/responses/NotFound"
+        patch:
+            summary: Swipe role active to inactive or the other way around
+            parameters:
+                - name: id
+                  in: path
+                  description: Role ID
+                  required: true
+                  schema:
+                      type: string
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            properties:
+                                active:
+                                    description: New active status
+                                    type: boolean
+                            required:
+                                - status
+            tags:
+                - roles
+            responses:
+                "200":
+                    description: Role actived/inatived
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/Role"
+                "400":
+                    $ref: "#/components/responses/Error"
+                "401":
+                    $ref: "#/components/responses/NotAllowed"
+                "404":
+                    $ref: "#/components/responses/NotFound"
+components:
+    responses:
+        NotFound:
+            description: The especified resource was not found
+        Error:
+            description: The request failed
+        NotAllowed:
+            description: Not allowed to use this resource
+    schemas:
+        User:
+            type: object
+            required:
+                - id
+                - email
+                - username
+            properties:
+                id:
+                    type: string
+                    format: uuid
+                email:
+                    type: string
+                username:
+                    type: string
+                password:
+                    type: string
+                    format: password
+                image:
+                    type: string
+                name:
+                    type: string
+                roles:
+                    type: string
+                active:
+                    type: boolean
+        Roles:
+            type: object
+            required:
+                - name
+                - color
+            properties:
+                id:
+                    type: string
+                    format: uuid
+                slug:
+                    type: string
+                name:
+                    type: string
+                active:
+                    type: boolean
+    securitySchemes:
+        BasicAuth:
+            type: http
+            scheme: basic
+security:
+    - BasicAuth: []
