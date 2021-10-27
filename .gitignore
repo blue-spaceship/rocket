@@ -38,3 +38,4 @@ yarn-error.log*
 /public/fallback-*.js
 /public/workbox-*.js
 /public/workbox-*.js.map
+package-lock.json
