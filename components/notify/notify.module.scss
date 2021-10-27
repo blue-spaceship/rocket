@@ -12,7 +12,7 @@
     @media ( max-width:767px ) {
         left: 50%;
         transform: translateX(-50%);
-        bottom: 1rem;
+        top: 1rem;
         max-width: 40rem;
     }
 
@@ -125,15 +125,4 @@
     *{
         animation: rotate 2s linear 0s infinite reverse forwards;
     }
-}
-
-@keyframes rotate {
-    0% { transform: rotate(0); }
-    100% { transform: rotate(360deg); }
-}
-
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
 }

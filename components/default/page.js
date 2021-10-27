@@ -9,11 +9,14 @@ export const Header = ({ children }) => {
 }
 
 export const Content = ({ children }) => {
-    return <session className={ Styles.content }>{children}</session>
+    return <section className={ Styles.content }>{children}</section>
 }
 
-export const Card = ({ children }) => {
-    return <section className={ Styles.card }>{ children }</section>
+export const Card = ({ children, closeAction = ()=>{} }) => {
+    return <div className={ Styles.overlayer }>
+        <div className={ Styles.empty } onClick={ closeAction }></div>
+        <section className={ Styles.card }>{ children }</section>
+    </div>
 }
 
 export default {

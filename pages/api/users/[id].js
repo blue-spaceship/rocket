@@ -17,7 +17,7 @@ async function update( id, changes ){
 }
 
 async function remove( id ){
-    return updateUser( id, { deleted: true, deletedAt: new Date() } )
+    return update( id, { deleted: true, deletedAt: new Date() } )
 }
 
 async function handler({ method, body, query }, res){ 
