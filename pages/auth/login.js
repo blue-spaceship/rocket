@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Router from 'next/router'
 import { signIn } from 'next-auth/react'
+import { Btn } from '/components/default/btn'
 
 import Styles from './login.module.scss'
 
@@ -34,7 +35,7 @@ const Login = ({setLoading}) => {
                 <div className={ Styles.container }>
                     <header className={ Styles.header }>
                         <Link href="/">
-                            <a><Image src="/assets/icons/logo.svg" alt="Blue Crystal" width={128} height={128} quality={100} objectFit="contain" /></a>
+                            <a><Image src="/assets/icons/logo.png" alt="Blue Crystal" width={100} height={100} quality={100} objectFit="contain" /></a>
                         </Link>
                         <h1>acesso com credencial</h1>
                         <p>A credencial da acesso a área de gestão, controle e monitoramento do Fluorite.</p>
@@ -56,7 +57,7 @@ const Login = ({setLoading}) => {
                                     </button>
                                 </div>
                             </label>
-                            <button type="submit" className="btn-submit" aria-expanded="false">Login</button>
+                            <Btn type="submit">Login</Btn>
                         </form>
                     </section>
                     <footer className={ Styles.footer }>
@@ -66,8 +67,8 @@ const Login = ({setLoading}) => {
                 <footer className={ Styles.footerPage }>
                     <nav className={ Styles.footerNav }>
                         <span>Dev by <Link href="https://github.com/walmeidaw"><a target="_blank">@walmeidaw</a></Link></span>
-                        <Link href="https://blue-crystal.vercel.app"><a target="_blank">Demo</a></Link>
-                        <Link href="https://github.com/walmeidaw/blue-crystal"><a target="_blank">Repository</a></Link>
+                        <Link href="https://bluespaceship.vercel.app"><a target="_blank">Demo</a></Link>
+                        <Link href="https://github.com/walmeidaw/blue-spaceship"><a target="_blank">Repository</a></Link>
                     </nav>
                 </footer>
             </div>

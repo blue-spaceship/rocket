@@ -56,6 +56,7 @@
         display: flex;
         flex-direction: column;
         color: var(--color-text);
+        gap: 1rem;
     }
 }
 
@@ -65,6 +66,7 @@
     flex-direction: column;
     box-sizing: border-box;
     position: relative;
+    z-index: 99;
 
     @media(min-width: 1025px){
         width: 20rem;
@@ -138,6 +140,15 @@
             background-color: var(--color-foreground-two);
             color: var(--color-text);
         }
+
+        &.active{
+            background-color: var(--color-main-one);
+            color: var(--color-text-contrast);
+
+            &:hover, &:focus, &:active{
+                background-color: var(--color-main-one-dark);
+            }
+        }
     }
 }
 
@@ -147,6 +158,15 @@
     &:hover, &:focus, &:active{
         color: var(--color-text-contrast) !important;
         background-color: var(--color-main-two) !important;
+    }
+}
+
+.high{
+    color: var(--color-main-one) !important;
+
+    &:hover, &:focus, &:active{
+        color: var(--color-text-contrast) !important;
+        background-color: var(--color-main-one) !important;
     }
 }
 

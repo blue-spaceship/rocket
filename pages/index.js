@@ -4,7 +4,7 @@ const Page = ({ setLoading }) => {
 	return (
 		<Main>
 			<Header>
-				<h2>Blue Crystal</h2>
+				<h2>Blue Spaceship</h2>
 			</Header>
 			<Content>Oi!</Content>
 		</Main>

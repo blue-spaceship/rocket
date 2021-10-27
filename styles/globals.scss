@@ -37,6 +37,7 @@
 
 	background-color: var(--color-background);
 	color: var(--color-text);
+	user-select: none;
 
 	@media (min-width: 1600px) {
 		font-size: 14px;
@@ -91,7 +92,7 @@ a {
 .input-area {
 	display: flex;
 	flex-direction: column;
-	gap: .3rem;
+	gap: 1rem;
 
 	.input-label {
 		display: flex;
@@ -117,13 +118,17 @@ a {
 			line-height: 1;
 			font-size: 1rem;
 			padding: .5rem 1rem;
-			height: 3rem;
+			height: 4rem;
 			width: 100%;
 			flex-direction: row;
 			justify-content: center;
 			border-radius: var(--rounded);
 			background-color: transparent !important;
 			color: var(--color-text);
+
+			@media (min-width:1025px) {
+				height: 3rem;
+			}
 
 
 			&:-webkit-autofill,
@@ -138,11 +143,10 @@ a {
 	}
 }
 
-.btn {
-	user-select: none;
+.btn-icon {
 	border: none;
 	display: flex;
-	height: 3rem;
+	aspect-ratio: 1/1;
 	flex-direction: row;
 	align-items: center;
 	justify-content: center;
@@ -151,54 +155,22 @@ a {
 	transition: all 300ms ease;
 	outline: none;
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
-
-.btn-icon {
-	@extend .btn;
-	aspect-ratio: 1/1;
 	overflow: hidden;
-	height: 3rem;
-	width: 3rem;
-	flex-shrink: 3rem;
+	height: 100%;
+	aspect-ratio: 1/1;
+	flex-basis: auto;
 	background-color: transparent;
 	color: var(--color-main-one);
+	
+	height: 4rem;
+
+	@media (min-width:1025px) {
+		height: 3rem;
+	}
 
 	&:hover {
 		background-color: var(--color-main-one-dark);
 		color: var(--color-text-contrast);
-	}
-}
-
-.btn-submit {
-	@extend .btn;
-	color: var(--color-text-contrast);
-	text-transform: uppercase;
-	letter-spacing: 1px;
-	background-color: var(--color-main-one);
-	background: linear-gradient(to right, var(--color-main-two), var(--color-main-one));
-	background-size: 250px 250px;
-	background-position: center center;
-
-	&:hover {
-		background-size: 300% 300%;
-	}
-
-	&:active {
-		background: var(--color-main-one-dark);
-	}
-}
-
-.btn-submit-2 {
-	@extend .btn;
-	color: var(--color-text-contrast);
-	text-transform: uppercase;
-	letter-spacing: 1px;
-
-	background-color: var(--color-main-one);
-
-	&:hover,
-	:active {
-		background: var(--color-main-one-dark);
 	}
 }
 

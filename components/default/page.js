@@ -12,13 +12,13 @@ export const Content = ({ children }) => {
     return <session className={ Styles.content }>{children}</session>
 }
 
-export const Panel = ({ children }) => {
-    return <section className={ Styles.panel }>{ children }</section>
+export const Card = ({ children }) => {
+    return <section className={ Styles.card }>{ children }</section>
 }
 
 export default {
     Header,
     Main,
     Content,
-    Panel
+    Card
 }

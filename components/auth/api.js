@@ -9,6 +9,9 @@ const Auth = (handler) => async (req, res) => {
 	if (token) {
 		// If user has access, return request
 		if(handler.roles === undefined || handler.roles.split(',').find( role => token.roles.includes(role) ) ){
+			if( req.method === 'POST' ){
+				req.body['createdBy'] = token._id
+			}
 			return handler(req, res)
 		}else{
 			res.status(403).end('No permission to use this')

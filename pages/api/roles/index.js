@@ -1,11 +1,11 @@
 import { Mongo } from '/services/mongo'
-import { User } from '/models'
+import { Role } from '/models'
 import Auth from '/components/auth/api'
 
-export async function getUser( id ){
+export async function getRole( id ){
     return Mongo( async () => {
         try {
-            const item = await User.findById( id )
+            const item = await Role.findById( id )
             return item ? JSON.parse(JSON.stringify(item)) : null
         } catch (error) {
             // console.error(error);
@@ -14,10 +14,10 @@ export async function getUser( id ){
     } )
 }
 
-export async function getUsers( args ){
+export async function getRoles( args ){
     return Mongo( async () => {
         try {
-            const list = await User.find( args )
+            const list = await Role.find( args )
             return JSON.parse(JSON.stringify(list))
         } catch (error) {
             // console.error(error);
@@ -29,7 +29,7 @@ export async function getUsers( args ){
 async function add( data ){
     return Mongo( async () => {
         try {
-            const _ = await new User( data )
+            const _ = await new Role( data )
             const saved = await _.save()
             return saved
         } catch (error) {
@@ -41,7 +41,7 @@ async function add( data ){
 async function handler({ method, query, body }, res){
     switch (method) {
         case 'GET' :
-            const list = await getUsers( query )
+            const list = await getRoles( query )
             res.status(200).json(list)
             break;
         case 'POST' :

@@ -42,19 +42,25 @@
     background-color: var(--color-foreground-one);
     border: var(--color-border) 1px solid;
     border-radius: var(--rounded);
-    max-width: 20rem;
     width: 100%;
     padding: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media (min-width: 768px) {
+        max-width: 30rem;
+    }
+
+    @media (min-width: 1200px) {
+        max-width: 20rem;        
+    }
 }
 
 .footer{
     background-color: var(--color-background);
     border: var(--color-border) 1px solid;
     border-radius: var(--rounded);
-    max-width: 20rem;
     width: 100%;
     padding: 2rem;
     text-align: center;
@@ -63,12 +69,21 @@
     justify-items: center;
     align-items: center;
     display: flex;
+
+    @media (min-width: 768px) {
+        max-width: 30rem;
+    }
+
+    @media (min-width: 1200px) {
+        max-width: 20rem;        
+    }
 }
 
 .form{
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    flex: 1;
 }
 
 .footerPage{
@@ -108,12 +123,12 @@
     }
 
     @media (min-width: 768px) {
-        min-width: 50%;
+        width: 100%;
         margin: 2rem;
         border-radius: 2rem;
     }
 
-    @media (min-width: 1024px) {
+    @media (min-width: 1200px) {
         min-width: auto;
         max-width: 40vw;
     }

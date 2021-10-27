@@ -1,13 +1,13 @@
 import mongoose from 'mongoose'
 import { Mongo } from '/services/mongo'
-import { User } from '/models'
+import { Role } from '/models'
 import Auth from '/components/auth/api'
-import { getUser } from './'
+import { getRole } from './'
 
 async function update( id, changes ){
     return Mongo( async () => {
         try {
-            const item = await User.findByIdAndUpdate( id , changes, { new : true } )
+            const item = await Role.findByIdAndUpdate( id , changes, { new : true } )
             return item ? JSON.parse(JSON.stringify(item)) : null
         } catch (error) {
             // console.error(error);
@@ -17,7 +17,7 @@ async function update( id, changes ){
 }
 
 async function remove( id ){
-    return updateUser( id, { deleted: true, deletedAt: new Date() } )
+    return updateRole( id, { deleted: true, deletedAt: new Date() } )
 }
 
 async function handler({ method, body, query }, res){ 
@@ -27,7 +27,7 @@ async function handler({ method, body, query }, res){
         return res.status(400).end('Invalid ID')
     }
     
-    let item = await getUser( id )
+    let item = await getRole( id )
 
     if(item === null && !item){
         return res.status(404).end()
