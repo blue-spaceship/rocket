@@ -1,6 +1,8 @@
 import { Mongo } from '/services/mongo'
 import { Role } from '/models'
+
 import Auth from '/components/auth/api'
+import Rules from '/components/auth/rules'
 
 export async function getRole( id ){
     return Mongo( async () => {
@@ -17,7 +19,7 @@ export async function getRole( id ){
 export async function getRoles( args ){
     return Mongo( async () => {
         try {
-            const list = await Role.find( args )
+            const list = await Role.find( args ).sort({ name: 1 })
             return JSON.parse(JSON.stringify(list))
         } catch (error) {
             // console.error(error);
@@ -33,6 +35,7 @@ async function add( data ){
             const saved = await _.save()
             return saved
         } catch (error) {
+            console.error(error);
             return false
         }
     })
@@ -53,9 +56,11 @@ async function handler({ method, query, body }, res){
             }
             break;
         default:
-            res.status(507).end('Method not allowed')
+            res.status(405).end('Method not allowed')
             break;
     }
 }
+
+handler.auth = Rules["/api/roles/"]
 
 export default Auth(handler)

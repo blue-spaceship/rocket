@@ -1,6 +1,8 @@
 import { Mongo } from '/services/mongo'
 import { User } from '/models'
+
 import Auth from '/components/auth/api'
+import Rules from '/components/auth/rules'
 
 export async function getUser( id ){
     return Mongo( async () => {
@@ -33,6 +35,7 @@ async function add( data ){
             const saved = await _.save()
             return saved
         } catch (error) {
+            console.error(error);
             return false
         }
     })
@@ -53,9 +56,11 @@ async function handler({ method, query, body }, res){
             }
             break;
         default:
-            res.status(507).end('Method not allowed')
+            res.status(405).end('Method not allowed')
             break;
     }
 }
+
+handler.auth = Rules["/api/users"]
 
 export default Auth(handler)

@@ -1,8 +1,12 @@
 import mongoose from 'mongoose'
 import { Mongo } from '/services/mongo'
 import { Role } from '/models'
-import Auth from '/components/auth/api'
+
 import { getRole } from './'
+
+import Auth from '/components/auth/api'
+import Rules from '/components/auth/rules'
+
 
 async function update( id, changes ){
     return Mongo( async () => {
@@ -22,10 +26,6 @@ async function remove( id ){
 
 async function handler({ method, body, query }, res){ 
     const { id } = query
-
-    if(!mongoose.Types.ObjectId.isValid(id)){
-        return res.status(400).end('Invalid ID')
-    }
     
     let item = await getRole( id )
 
@@ -53,9 +53,11 @@ async function handler({ method, body, query }, res){
                 res.status(400).end()
             break;
         default:
-            res.status(507).end('Method not allowed')
+            res.status(405).end('Method not allowed')
             break;
     }
 }
+
+handler.auth = Rules["/api/roles/[id]"]
 
 export default Auth(handler)
