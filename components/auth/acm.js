@@ -23,7 +23,7 @@ export default function ACM ( { auth = true, roles = '', children } ){
 
     if(status === "authenticated" && auth){
         // In case is authentecated verify is there's a role based control before showing children
-        if(roles !== '' && !roles.split(',').find( role => session.user?.roles?.includes(role) ) ){
+        if(roles !== '' && !roles.find( role => session.user?.roles?.includes(role) ) ){
             return null
         }
 

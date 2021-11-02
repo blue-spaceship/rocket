@@ -61,9 +61,8 @@ function Auth({ config, children}) {
 	}, [isUser, status])
   
 	const isAllowed = () => {
-		let roles = ( config.roles ) ? config.roles : 'default,admin'
-		roles = roles.split(',')
-		const userRoles = (session?.user?.roles) ? session?.user?.roles.split(',') : ['default','admin']
+		let roles = ( config.roles ) ? config.roles : ['default']
+		const userRoles = (session?.user?.roles) ? session?.user?.roles : ['default']
 
 		if(roles.find((r)=>{ return userRoles.includes(r) } )){
 			return true
