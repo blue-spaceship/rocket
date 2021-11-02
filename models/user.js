@@ -10,7 +10,7 @@ export const UserSchema = new Schema({
     password: { type: String, select: false },
     image: { type: String },
     name: { type: String },
-    roles: { type: String, lowercase: true, default: "default" },
+    roles: [{ type: String }],
     active: { type: Boolean, default: true },
     deleted: { type: Boolean, default: false, select: false },
     deletedAt: { type: Date, select: false }
