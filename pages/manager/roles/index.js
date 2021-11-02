@@ -20,14 +20,12 @@ const handler = ({ data }) => {
     
         return (
             <div className={ ListStyles.listItem }>
-                <Link href={ `/manager/users/${ item._id }` }>
-                    <a className={ ListStyles.content }>
-                        <div className={ ListStyles.title }>{ item.name }</div>
-                        <div className={ ListStyles.subitems }>{ item.email }</div>
-                    </a>
-                </Link>
+                <div className={ ListStyles.content }>
+                    <div className={ ListStyles.title }>{ item.name }</div>
+                    <div className={ ListStyles.subitems }>{ item.email }</div>
+                </div>
                 <div className={ ListStyles.action }>
-                    <BtnIcon><span className="material-icons-round">edit</span></BtnIcon>
+                    <BtnIcon href={ `/manager/roles/${ item._id }/edit` }><span className="material-icons-round">edit</span></BtnIcon>
                     <Btn data-type="danger">Excluir</Btn>
                 </div>
             </div>
@@ -39,6 +37,11 @@ const handler = ({ data }) => {
             <>
                 <Header>
                     <h2>Papeis</h2>
+                    <div style={{ display: 'flex', gap: '1rem' }}>
+                        <Link href="/manager/roles/new">
+                            <a><BtnIcon data-type="info"><span className="material-icons-round">add</span></BtnIcon></a>
+                        </Link>
+                    </div>
                 </Header>
                 <Content>
                     { roles.length > 0 ? 
