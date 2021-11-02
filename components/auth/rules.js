@@ -1,6 +1,5 @@
 const Rules = {
     "/" : null,
-    "/auth/logout" : { auth: true, unauthorized: '/login' },
     "/auth/login" : { auth: false, unauthorized: '/' },
     "/auth/forgot" : { auth: false, unauthorized: '/' },
 
