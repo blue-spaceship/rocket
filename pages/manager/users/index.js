@@ -47,7 +47,7 @@ const handler = ({ data, setLoading }) => {
             window.postMessage({ messaging: true, type: 'success', message: 'Usuário excluido' })
         } catch (error) {
             window.postMessage({ messaging: true, type: 'danger', message: 'Não foi possível excluir o usuário' })
-            console.log(error)
+            // console.error(error)
         } finally {
             setCardLoading(false)
         }
@@ -58,6 +58,11 @@ const handler = ({ data, setLoading }) => {
             <>
                 <Header>
                     <h2>Usuários</h2>
+                    <div style={{ display: 'flex', gap: '1rem' }}>
+                        <Link href="/manager/users/new">
+                            <a><BtnIcon data-type="info"><span className="material-icons-round">add</span></BtnIcon></a>
+                        </Link>
+                    </div>
                 </Header>
                 <Content>
                     { users.length > 0 ? users.map( item => (<ListItem key={item._id} data={ item } />) ) : <EmptyState /> }
