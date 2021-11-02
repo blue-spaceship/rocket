@@ -17,7 +17,7 @@ class MyDocument extends Document {
 
 	render() {
 		return (
-			<Html>
+			<Html lang="pt-BR">
 				<Head>
 					<meta name="mobile-web-app-capable" content="yes" />
 					<meta name="apple-mobile-web-app-capable" content="yes" />
