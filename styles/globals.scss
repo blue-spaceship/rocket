@@ -21,7 +21,7 @@
 
 	@media (prefers-color-scheme: dark) {
 		--color-text: #ffffff;
-		--color-border: #101426;
+		--color-border: #303a63;
 		--color-background: #151A30;
 		--color-foreground-one: #222B45;
 		--color-foreground-two: #1A2138;
@@ -126,7 +126,7 @@ a {
 			background-color: transparent !important;
 			color: var(--color-text);
 
-			@media (min-width:1025px) {
+			@media (min-width:1024px) {
 				height: 3rem;
 			}
 
@@ -164,7 +164,7 @@ a {
 	
 	height: 4rem;
 
-	@media (min-width:1025px) {
+	@media (min-width:1024px) {
 		height: 3rem;
 	}
 

@@ -57,7 +57,7 @@ const Login = ({setLoading}) => {
                                     </button>
                                 </div>
                             </label>
-                            <Btn type="submit">Login</Btn>
+                            <Btn type="submit" data-type="submit">Login</Btn>
                         </form>
                     </section>
                     <footer className={ Styles.footer }>

@@ -49,7 +49,7 @@ function Page({ setLoading }){
                                     <input type="text" required name="reference" id="reference" autoFocus />
                                 </div>
                             </label>
-                            <Btn type="submit">Resetar</Btn>
+                            <Btn type="submit" data-type="submit">Resetar</Btn>
                         </form>
                     </section>
                     <footer className={ Styles.footer }>

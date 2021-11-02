@@ -25,7 +25,7 @@ function Layout({ ignore, children }){
                     <div className={ Styles.logo }>
                         <Link href="/">
                             <a onClick={()=>{ closeToggle() }}>
-                                <Image src="/assets/icons/logo.png" width={128} height={128} quality={100} layout="responsive" />
+                                <Image src="/assets/icons/logo.png" width={64} height={64} quality={100} layout="fixed" />
                                 <h1>Blue Spaceship</h1>
                             </a>
                         </Link>
