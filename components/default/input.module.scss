@@ -1,0 +1,143 @@
+.inputField{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    padding: 1rem;
+    border-radius: var(--rounded);
+    border: 1px solid transparent;
+    box-shadow: 0 0 0 var(--shadow);
+
+    transition: all 300ms ease-in-out;
+
+    &:focus-within{
+        background-color: var(--color-foreground-one);
+        border: 1px solid var(--color-border);
+        box-shadow: 0 0 2rem var(--shadow);
+    }
+}
+
+.textbox{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: var(--rounded);
+    background-color: var(--color-foreground-one);
+    border: 1px solid var(--color-border);
+    word-break: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.inputCheckbox{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.inputHeader{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.inputLabel{
+    display: flex;
+    font-weight: 500;
+}
+
+.message{
+    margin: 0;
+    font-size: 90%;
+
+    &.default{ color: var(--color-default) }; 
+    &.info{ color: var(--color-info) }; 
+    &.success{ color: var(--color-success); }
+    &.warning{ color: var(--color-warning); }
+    &.danger{ color: var(--color-danger) }; 
+}
+
+.input{
+    display: flex;
+    padding: .75rem;
+    border: 1px solid var(--color-border);
+    font-size: 1rem;
+    background-color: var(--color-background);
+    color: var(--color-text);
+
+    &:focus{
+        outline-color: var(--color-main-two);
+    }
+
+    &:hover{
+        border-color: var(--color-main-one);
+    }
+}
+
+.textarea{
+    resize: none;
+    display: flex;
+    padding: .75rem;
+    border: 1px solid var(--color-border);
+    font-size: 1rem;
+    font-family: var(--font-family);
+    background-color: var(--color-background);
+    color: var(--color-text);
+
+    &:focus{
+        outline-color: var(--color-main-two);
+    }
+
+    &:hover{
+        border-color: var(--color-main-one);
+    }
+}
+
+.select{
+    display: flex;
+    padding: .75rem;
+    background-color: transparent;
+    border: 1px solid var(--color-border);
+    font-size: 1rem;
+    background-color: var(--color-background);
+    color: var(--color-text);
+
+    &[multiple]{
+        height: auto;
+        overflow: auto;
+    }
+
+    option{
+        padding: .75rem;
+        appearance: none;
+        
+        &:hover{
+            background-color: var(--color-main-two);
+        }
+
+        &:checked, &:active{
+            background-color: var(--color-main-one);
+        }
+    }
+
+    &:focus{
+        outline-color: var(--color-main-two);
+    }
+
+    &:hover{
+        border-color: var(--color-main-one);
+    }
+}
+
+.checkbutton{
+    color: var(--color-danger) !important;
+
+    &.active{
+        color: var(--color-success) !important;
+    }
+}
+
+.hidden{
+    height: 0px;
+    width: 0px;
+}
