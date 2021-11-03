@@ -178,4 +178,8 @@
     flex-direction: column;
     overflow-y:auto;
     word-break: break-all;
+
+    *{
+        user-select: text;
+    }
 }

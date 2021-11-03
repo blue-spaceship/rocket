@@ -1,8 +1,11 @@
 import Axios from 'axios'
 
+const _CONFIG = { headers: { Authorization: `Bearer ${process.env.PIPELESS_APIKEY}` } }
+const _URI = `https://api.pipeless.io/v1/apps/${process.env.PIPELESS_APPID}/`
+
 export class Pipeless {
-    URI = `https://api.pipeless.io/v1/apps/${ process.env.PIPELESS_APPID }/`
-    CONFIG = { headers: { Authorization: `Bearer ${ process.env.PIPELESS_APIKEY }` } }
+    URI = _URI
+    CONFIG = _CONFIG
 
     path = ''
     data = {}
@@ -32,7 +35,9 @@ export class Event extends Pipeless {
     }
 
     async Save() {
-        return Axios.post(`${this.URI}${this.path}`, { ... this.getDataAsJSON() }, { ...this.CONFIG })
+        const result = await Axios.post(this.URI + this.path, this.getDataAsJSON(), this.CONFIG).then( res => res.data ).catch( err => { console.error(err) } )
+        console.log('pipeless result:', result);
+        return result
     }
 }
 
@@ -62,7 +67,12 @@ export class Relationship {
     static Created() { return new Relationship(RelationshipTypes.created) }
     static Updated() { return new Relationship(RelationshipTypes.updated, false) }
     static Deleted() { return new Relationship(RelationshipTypes.deleted) }
+
     static LoggedIn() { return new Relationship(RelationshipTypes.loggedIn, false) }
+    
+    static Status( status ) { 
+        return new Relationship( status ? RelationshipTypes.enabled : RelationshipTypes.disabled , false)
+    }
 }
 
 export const ObjectTypes = {
@@ -90,6 +100,11 @@ export const ObjectTypes = {
     video: "video"
 }
 
+export const ObjectTypesLabels = {
+    user: "usuário",
+    skill: "papel",
+}
+
 export const RelationshipTypes = {
     addedTo: "addedTo",
     authored: "authored",
@@ -98,8 +113,10 @@ export const RelationshipTypes = {
     commentedOn: "commentedOn",
     created: "created",
     deleted: "deleted",
+    disabled: "disabled",
     disliked: "disliked",
     dismissed: "dismissed",
+    enabled: "enabled",
     favorited: "favorited",
     followed: "followed",
     interestedIn: "interestedIn",
@@ -132,8 +149,10 @@ export const RelationshipTypesLabels = {
         commentedOn: "recebeu um comentário de",
         created: "foi cadastrado no",
         deleted: "foi removido por",
+        disabled: "foi desativado por",
         disliked: "não gostou de",
         dismissed: "foi demitido por",
+        enabled: "foi ativado por",
         favorited: "foi favoritado por",
         followed: "foi seguido por",
         interestedIn: "tem um interessado,",
@@ -164,8 +183,10 @@ export const RelationshipTypesLabels = {
         commentedOn: "comentou em",
         created: "cadastrou",
         deleted: "removeu",
+        disabled: "desativou",
         disliked: "não gostou de",
         dismissed: "demitiu",
+        enabled: "ativou",
         favorited: "favoritou",
         followed: "seguiu",
         interestedIn: "está interessado em",
