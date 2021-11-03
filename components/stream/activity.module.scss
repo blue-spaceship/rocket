@@ -1,0 +1,26 @@
+.list{
+    list-style: none;
+    display: flex;
+    border: 1px solid var(--color-border);
+	padding: .5rem;
+	border-radius: var(--rounded);
+    gap: 1rem;
+    flex-direction: column;
+
+    .item{
+        padding: 1rem;
+        border-radius: var(--rounded);
+        &:first-letter {
+            text-transform: uppercase;
+        }
+
+        &:hover{
+            background: var(--color-foreground-one);
+        }
+    }
+
+    .datetime{
+        font-size: 0.8rem;
+        color: var(--color-default);
+    }
+}

@@ -19,7 +19,7 @@ export async function getUser( id ){
 export async function getUsers( args ){
     return Mongo( async () => {
         try {
-            const list = await User.find( args )
+            const list = await User.find( args ).sort({ active: -1, name: 1 })
             return JSON.parse(JSON.stringify(list))
         } catch (error) {
             // console.error(error);

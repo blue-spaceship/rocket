@@ -1,12 +1,14 @@
 import { useState } from 'react'
 import Link from 'next/link'
-import { Header, Main, Content, Card } from "/components/default/page"
+import Axios from 'axios'
+
 import { getUsers } from '/pages/api/users'
+
+import { Header, Main, Content, Card } from "/components/default/page"
 import EmptyState from '/components/states/empty'
 import { Btn, BtnIcon } from '/components/default/btn'
 
 import ListStyles from '/components/default/page.module.scss'
-import Axios from 'axios'
 
 export const getServerSideProps = async () => {
     const data = await getUsers()
@@ -15,7 +17,10 @@ export const getServerSideProps = async () => {
 
 const handler = ({ data, setLoading }) => {
     const [users, setUsers] = useState(data)
-    const [ CardToogle, setCardToogle ] = useState( undefined )
+    
+    const [ ToDelete, setToDelete ] = useState( undefined )
+    const [ ToArchive, setToArchive ] = useState( undefined )
+
     const [ CardLoading, setCardLoading ] = useState( false )
 
     const ListItem = ({data}) => {
@@ -29,8 +34,9 @@ const handler = ({ data, setLoading }) => {
                     </a>
                 </Link>
                 <div className={ ListStyles.action }>
-                    <BtnIcon href={ `/manager/users/${ item._id }/edit` }><span className="material-icons-round">edit</span></BtnIcon>
-                    <Btn data-type="danger" onClick={ () => setCardToogle(item) }>Excluir</Btn>
+                    <BtnIcon onClick={ () => setToArchive(item) } data-type={ item.active ? 'success' : 'disabled' }><span className="material-icons-round">{ item.active ? 'archive' : 'unarchive' }</span></BtnIcon>
+                    <BtnIcon data-type="info" href={ `/manager/users/${ item._id }/edit` }><span className="material-icons-round">edit</span></BtnIcon>
+                    <Btn data-type="danger" onClick={ () => setToDelete(item) }>Excluir</Btn>
                 </div>
             </div>
         )
@@ -42,12 +48,29 @@ const handler = ({ data, setLoading }) => {
 
         try {
             await Axios.delete(`/api/users/${ user._id }`)
-            setCardToogle(undefined)
-            setUsers( users.filter( item => item._id !== user._id ) )
+            setToDelete(undefined)
+            console.log(users);
             window.postMessage({ messaging: true, type: 'success', message: 'Usuário excluido' })
+            setUsers( users.filter( item => item._id !== user._id ) )
         } catch (error) {
             window.postMessage({ messaging: true, type: 'danger', message: 'Não foi possível excluir o usuário' })
             // console.error(error)
+        } finally {
+            setCardLoading(false)
+        }
+    }
+
+    // handle archive user
+    const handleArchive = async ( user ) => {
+        setCardLoading(true)
+
+        try {
+            const updatedUser = await Axios.patch(`/api/users/${ user._id }`, { active: !user.active })
+            setToArchive(undefined)
+            window.postMessage({ messaging: true, type: 'success', message: `Usuário ${ user.active ? 'arquivado' : 'desarquivado' }` })
+            setUsers( users.map( item => user._id === item._id ? updatedUser.data : item ) )
+        } catch (error) {
+            window.postMessage({ messaging: true, type: 'danger', message: `Não foi possível ${ user.active ? 'arquivar' : 'desarquivar' } o usuário` })
         } finally {
             setCardLoading(false)
         }
@@ -68,33 +91,65 @@ const handler = ({ data, setLoading }) => {
                     { users.length > 0 ? users.map( item => (<ListItem key={item._id} data={ item } />) ) : <EmptyState /> }
                 </Content>
                 {
-                    CardToogle && <Card closeAction={ () => setCardToogle( undefined ) }>
+                    ToDelete && <Card closeAction={ () => setToDelete( undefined ) }>
                         <div>
                             <h3>Deseja realmente excluir este usuário?</h3>
                             <div className={ ListStyles.sample }>
                                 <div>
                                     <strong>Nome: </strong>
-                                    { CardToogle.name }
+                                    { ToDelete.name }
                                 </div>
                                 <div>
                                     <strong>E-mail: </strong>
-                                    { CardToogle.email}
+                                    { ToDelete.email}
                                 </div>
                                 <div>
                                     <strong>Usuário: </strong>
-                                    { CardToogle.username}
+                                    { ToDelete.username}
                                 </div>
                                 <div>
                                     <strong>Papeis: </strong>
-                                    { CardToogle.roles}
+                                    { ToDelete.roles}
                                 </div>
                             </div>
                         </div>
                         <div style={{ display: 'flex', gap: '1rem' }}>                        
-                            <Btn data-type={ CardLoading ? 'default' : 'danger' } onClick={ () => handleDelete( CardToogle ) }>
+                            <Btn data-type={ CardLoading ? 'default' : 'danger' } onClick={ () => handleDelete( ToDelete ) }>
                                 { CardLoading ?  <span className="material-icons-round animate-loop">loop</span> : 'Confirmar' }
                             </Btn>
-                            { CardLoading ? null : <Btn onClick={ () => setCardToogle( undefined ) }>Cancelar</Btn> }
+                            { CardLoading ? null : <Btn onClick={ () => setToDelete( undefined ) }>Cancelar</Btn> }
+                        </div>
+                    </Card>
+                }
+
+                {
+                    ToArchive && <Card closeAction={ () => setToArchive( undefined ) }>
+                        <div>
+                            <h3>Deseja { ToArchive.active ? 'arquivar' : 'desarquivar' } este usuário?</h3>
+                            <div className={ ListStyles.sample }>
+                                <div>
+                                    <strong>Nome: </strong>
+                                    { ToArchive.name }
+                                </div>
+                                <div>
+                                    <strong>E-mail: </strong>
+                                    { ToArchive.email}
+                                </div>
+                                <div>
+                                    <strong>Usuário: </strong>
+                                    { ToArchive.username}
+                                </div>
+                                <div>
+                                    <strong>Papeis: </strong>
+                                    { ToArchive.roles}
+                                </div>
+                            </div>
+                        </div>
+                        <div style={{ display: 'flex', gap: '1rem' }}>                        
+                            <Btn data-type={ CardLoading ? 'default' : 'info' } onClick={ () => handleArchive( ToArchive) }>
+                                { CardLoading ?  <span className="material-icons-round animate-loop">loop</span> : 'Confirmar' }
+                            </Btn>
+                            { CardLoading ? null : <Btn onClick={ () => setToArchive( undefined ) }>Cancelar</Btn> }
                         </div>
                     </Card>
                 }
