@@ -1,4 +1,3 @@
-import mongoose from 'mongoose'
 import { Mongo } from '/services/mongo'
 import { Role } from '/models'
 
@@ -46,7 +45,7 @@ async function handler({ method, body, query }, res){
             item ? res.status(200).end() : res.status(400).end() 
             break;
         case 'PATCH' :
-            const active = { body }
+            const { active } = body
             item = await update( id, { active } )
             item ? 
                 res.status(200).json(item) :

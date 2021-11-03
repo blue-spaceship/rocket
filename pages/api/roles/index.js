@@ -19,7 +19,7 @@ export async function getRole( id ){
 export async function getRoles( args ){
     return Mongo( async () => {
         try {
-            const list = await Role.find( args ).sort({ name: 1 })
+            const list = await Role.find( args ).sort({ active: -1, name: 1 })
             return JSON.parse(JSON.stringify(list))
         } catch (error) {
             // console.error(error);
