@@ -11,47 +11,47 @@
     "theme_color": "#5267de",
     "background_color": "#ffffff",
     "shortcuts": [
-        {
-            "name": "Gerenciar Usuários",
-            "short_name": "Usuários",
-            "description": "Abre a gestão de usuários",
-            "url": "/manager/users",
-            "icons": [
-                {
-                    "src": "/dev/assets/icons/icon-user-192x192.png",
-                    "sizes": "192x192"
-                }
-            ]
-        }
+      {
+        "name": "Gerenciar Usuários",
+        "short_name": "Usuários",
+        "description": "Abre a gestão de usuários",
+        "url": "/manager/users",
+        "icons": [
+          {
+            "src": "/dev/assets/icons/icon-user-192x192.png",
+            "sizes": "192x192"
+          }
+        ]
+      }
     ],
     "icons": [
-        {
-            "src": "/dev/assets/icons/icon-192x192.png",
-        },
-        {
-            "src": "/dev/assets/icons/icon-192x192.png",
-            "sizes": "196x196",
-            "purpose": "any maskable"
-        },
-        {
-            "src": "/dev/assets/icons/icon-256x256.png",
-            "sizes": "256x256"
-        },
-        {
-            "src": "/dev/assets/icons/icon-384x384.png",
-            "sizes": "384x384"
-        },
-        {
-            "src": "/dev/assets/icons/icon-512x512.png",
-            "sizes": "512x512"
-        }
+      {
+        "src": "/dev/assets/icons/icon-192x192.png"
+      },
+      {
+        "src": "/dev/assets/icons/icon-192x192.png",
+        "sizes": "196x196",
+        "purpose": "any maskable"
+      },
+      {
+        "src": "/dev/assets/icons/icon-256x256.png",
+        "sizes": "256x256"
+      },
+      {
+        "src": "/dev/assets/icons/icon-384x384.png",
+        "sizes": "384x384"
+      },
+      {
+        "src": "/dev/assets/icons/icon-512x512.png",
+        "sizes": "512x512"
+      }
     ],
     "screenshots": [
-        {
-            "src": "/dev/assets/screens/screen-1.png"
-        },
-        {
-            "src": "/dev/assets/screens/screen-2.png"
-        }
+      {
+        "src": "/dev/assets/screens/screen-1.png"
+      },
+      {
+        "src": "/dev/assets/screens/screen-2.png"
+      }
     ]
 }
