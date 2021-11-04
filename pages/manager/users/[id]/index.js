@@ -56,7 +56,7 @@ const handler = ({ user, activities }) => {
                                         activities.map( item =>                                
                                             <li className={ ActivityStyle.item }>
                                                 <div className={ ActivityStyle.activity }>
-                                                    O { ObjectTypesLabels[item.object.type] } { RelationshipTypesLabels[item.direction][item.relationship.type] } { (session.user._id === item.object.id) ? 'você' : `${item.object.id}`}
+                                                    Este usuário { RelationshipTypesLabels[item.direction][item.relationship.type] } { (session.user._id === item.object.id) ? 'você' : `${ ObjectTypesLabels[item.object.type] } ${item.object.id}`}
                                                 </div>
                                                 <span className={ ActivityStyle.datetime }>{ item.relationship.created_on }</span>
                                             </li>

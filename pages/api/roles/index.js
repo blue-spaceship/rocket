@@ -3,6 +3,7 @@ import { Role } from '/models'
 
 import Auth from '/components/auth/api'
 import Rules from '/components/auth/rules'
+import _ from '/services/pipeless'
 
 export async function getRole( id ){
     return Mongo( async () => {
@@ -50,6 +51,11 @@ async function handler({ method, query, body }, res){
         case 'POST' :
             const item = await add(body)
             if(item){
+                await new _.Event( 
+                    _.Subject.User( body.token._id || 'unknown'), 
+                    _.Relationship.Created(),
+                    _.Subject.Role(item._id)
+                ).Save()
                 res.status(200).json(item)
             }else{
                 res.status(400).end()

@@ -4,6 +4,7 @@ const secret = process.env.SESSION_SECRET
 
 const Auth = (handler) => async (req, res) => {	
 	const token = await getToken({ req, secret })
+	
 	const userRole = token ? 
 		{ 
 			isLogged: !!token,

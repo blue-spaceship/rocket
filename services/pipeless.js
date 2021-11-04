@@ -35,7 +35,9 @@ export class Event extends Pipeless {
     }
 
     async Save() {
-        const result = await Axios.post(this.URI + this.path, this.getDataAsJSON(), this.CONFIG).then( res => res.data ).catch( err => { console.error(err) } )
+        const result = await Axios.post(this.URI + this.path, this.getDataAsJSON(), this.CONFIG)
+            .then( res => res.data )
+            .catch( err => { console.error(err); return false } )
         console.log('pipeless result:', result);
         return result
     }
@@ -101,8 +103,28 @@ export const ObjectTypes = {
 }
 
 export const ObjectTypesLabels = {
+    account: "conta",
+    app: "app",
+    article: "artigo",
+    book: "livr",
+    card: "cartão",
+    cart: "carrinho",
+    category: "categoria",
+    comment: "comentário",
+    company: "compania",
+    content: "conteúdo",
+    country: "país",
+    film: "filme",
+    image: "imagem",
+    job: "trabalho",
+    person: "pessoa",
+    post: "publicação",
+    product: "produto",
+    skill: "habilidade",
+    state: "estado",
+    tag: "tag",
     user: "usuário",
-    skill: "papel",
+    video: "vídeo"
 }
 
 export const RelationshipTypes = {
@@ -145,9 +167,9 @@ export const RelationshipTypesLabels = {
         addedTo: "recebeu",
         authored: "foi escrito por",
         blocked: "foi bloqueado por",
-        categorizedIn: "foi adicionada em",
+        categorizedIn: "foi adicionado por",
         commentedOn: "recebeu um comentário de",
-        created: "foi cadastrado no",
+        created: "foi cadastrado por",
         deleted: "foi removido por",
         disabled: "foi desativado por",
         disliked: "não gostou de",
@@ -179,22 +201,22 @@ export const RelationshipTypesLabels = {
         addedTo: "adicionado para",
         authored: "escreveu",
         blocked: "bloquiou",
-        categorizedIn: "categorizou em",
-        commentedOn: "comentou em",
+        categorizedIn: "categorizou no",
+        commentedOn: "comentou no",
         created: "cadastrou",
         deleted: "removeu",
         disabled: "desativou",
-        disliked: "não gostou de",
+        disliked: "não gostou do",
         dismissed: "demitiu",
         enabled: "ativou",
         favorited: "favoritou",
         followed: "seguiu",
-        interestedIn: "está interessado em",
+        interestedIn: "está interessado no",
         liked: "gostou",
-        locatedIn: "está em",
-        loggedIn: "fez login em",
+        locatedIn: "está no",
+        loggedIn: "fez login no",
         madeBy: "feito por",
-        pausedOn: "parou em",
+        pausedOn: "parou no",
         posted: "postou",
         purchased: "comprou",
         readAll: "viu todo",
@@ -203,7 +225,7 @@ export const RelationshipTypesLabels = {
         reported: "reportou",
         saved: "salvou",
         subscribedFrom: "inscrito de",
-        subscribedTo: "se inscreveu para",
+        subscribedTo: "se inscreveu no",
         taggedWith: "classificou com",
         used: "usou",
         updated: "atualizou",

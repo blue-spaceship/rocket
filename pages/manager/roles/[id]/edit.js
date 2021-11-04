@@ -28,7 +28,7 @@ const handler = ({ role, setLoading }) => {
             setLoading(false)
             if(res.status === 200) {
                 window.postMessage({ messaging: true, type: 'success', title: 'Pronto!', message: 'Papel atualizado com sucesso' })
-                router.push(`/manager/roles/${role._id}/edit`)
+                router.push(`/manager/roles/`)
             } else {
                 window.postMessage({ messaging: true, type: 'danger', title: `Erro ${ res.status }`, message: `Algo deu errado` })
             }

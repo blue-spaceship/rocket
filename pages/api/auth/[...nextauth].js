@@ -58,9 +58,9 @@ export default NextAuth({
         signIn({ account, user, isNewUser, profile }){
             const _ = Pipeless
             new _.Event(
-                new _.Subject(user._id, _.ObjectTypes.user),
-                new _.Relationship(_.RelationshipTypes.loggedIn, null, true),
-                new _.Subject(process.env.APP_NAME, _.ObjectTypes.app) ).Save()
+                _.Subject.User(user._id),
+                _.Relationship.LoggedIn(),
+                _.Subject.App()).Save()
         }
     }
 
