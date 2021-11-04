@@ -4,11 +4,11 @@
     "dir": "ltr",
     "categories": "business,productivity",
     "lang": "pt",
-    "orientation": "any",
+    "orientation": "portrait",
     "scope": "/",
     "start_url": "/",
     "display": "standalone",
-    "theme_color": "#6F9EFB",
+    "theme_color": "#5267de",
     "background_color": "#ffffff",
 
     "shortcuts": [{
@@ -23,7 +23,10 @@
     }],
 
     "icons": [{
-            "src": "/dev/assets/icons/icon-192x192.png"
+            "src": "/dev/assets/icons/icon-192x192.png",
+            "sizes": "196x196",
+            "type": "image/png",
+            "purpose": "any maskable"
         },
         {
             "src": "/dev/assets/icons/icon-256x256.png",

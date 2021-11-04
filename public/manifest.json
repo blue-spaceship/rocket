@@ -4,11 +4,11 @@
     "dir": "ltr",
     "categories": "business,productivity",
     "lang": "pt",
-    "orientation": "any",
+    "orientation": "portrait",
     "scope": "/",
     "start_url": "/",
     "display": "standalone",
-    "theme_color": "#0088FF",
+    "theme_color": "#00B1FE",
     "shortcuts": [
         {
           "name": "Gerenciar Usuários",
@@ -20,7 +20,10 @@
     ],
     "icons": [
       {
-        "src": "/assets/icons/icon-192x192.png"
+        "src": "/assets/icons/icon-192x192.png",
+        "sizes": "196x196",
+        "type": "image/png",
+        "purpose": "any maskable"
       },
       {
         "src": "/assets/icons/icon-256x256.png",

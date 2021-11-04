@@ -35,7 +35,7 @@ const Login = ({setLoading}) => {
                 <div className={ Styles.container }>
                     <header className={ Styles.header }>
                         <Link href="/">
-                            <a><Image src="/assets/icons/logo.png" alt="Blue Crystal" width={80} height={80} quality={100} objectFit="contain" /></a>
+                            <a><Image src="/assets/icons/logo.png" alt="Blue Crystal" width={80} height={80} quality={100} objectFit="contain" alt="Blue Spaceship Icon" /></a>
                         </Link>
                         <h1>acesso com credencial</h1>
                         <p>A credencial da acesso a área de gestão, controle e monitoramento do Fluorite.</p>

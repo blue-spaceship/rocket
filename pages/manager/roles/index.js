@@ -34,7 +34,7 @@ const handler = ({ data }) => {
                 </div>
                 <div className={ ListStyles.action }>
                     <BtnIcon onClick={ () => setToArchive(item) } data-type={ item.active ? 'success' : 'disabled' }><span className="material-icons-round">{ item.active ? 'archive' : 'unarchive' }</span></BtnIcon>
-                    <BtnIcon href={ `/manager/roles/${ item._id }/edit` }><span className="material-icons-round">edit</span></BtnIcon>
+                    <BtnIcon data-type="info" href={ `/manager/roles/${ item._id }/edit` }><span className="material-icons-round">edit</span></BtnIcon>
                     <Btn data-type="danger" onClick={ () => setToDelete(item) }>Excluir</Btn>
                 </div>
             </div>

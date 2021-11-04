@@ -36,7 +36,7 @@ function Page({ setLoading }){
                 <div className={ Styles.container }>
                     <header className={ Styles.header }>
                         <Link href="/">
-                            <a><Image src="/assets/icons/logo.png" alt="Blue Crystal" width={80} height={80} quality={100} objectFit="contain" /></a>
+                            <a><Image src="/assets/icons/logo.png" alt="Blue Crystal" width={80} height={80} quality={100} objectFit="contain" alt="Blue Spaceship Icon" /></a>
                         </Link>
                         <h1>resetar senha</h1>
                         <p>Entre com seu usuário ou e-mail para receber uma nova senha.</p>
