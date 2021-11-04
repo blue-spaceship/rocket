@@ -9,7 +9,6 @@ import Notify from '/components/notify'
 import Loading from '/components/notify/loading'
 
 import Layout from '/layouts/default'
-import Badge from '/components/dev/badge'
 
 import '../styles/globals.scss'
 
@@ -41,7 +40,6 @@ function App({ Component, pageProps }) {
 			
 			<SessionProvider session={ pageProps.session }>
 				<Layout ignore={ Component.noLayout }>
-				<Badge />
 				<Loading visible={ loading } />
 				{ AuthRules ? (
 					<Auth config={ AuthRules }>

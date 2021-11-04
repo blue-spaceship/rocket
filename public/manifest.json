@@ -26,9 +26,6 @@
     ],
     "icons": [
       {
-        "src": "/assets/icons/icon-192x192.png"
-      },
-      {
         "src": "/assets/icons/icon-192x192.png",
         "sizes": "196x196",
         "purpose": "any maskable"
@@ -47,11 +44,9 @@
       }
     ],
     "screenshots": [
-      {
-        "src": "/assets/screens/screen-1.png"
-      },
-      {
-        "src": "/assets/screens/screen-2.png"
-      }
+      { "src": "/assets/screens/screen-1.png" },
+      { "src": "/assets/screens/screen-2.png" },
+      { "src": "/assets/screens/screen-3.png" },
+      { "src": "/assets/screens/screen-4.png" }
     ]
   }

@@ -5,16 +5,6 @@ class MyDocument extends Document {
 		return { ...initialProps }
 	}
 
-	
-    isProduction (){
-		if(process.env.NEXT_PUBLIC_VERCEL_ENV){			
-			return process.env.NEXT_PUBLIC_VERCEL_ENV === 'production'
-		}
-		if(process.env.NODE_ENV){
-			return process.env.NODE_ENV === 'production'
-		}
-	}
-
 	render() {
 		return (
 			<Html lang="pt-BR">
@@ -24,25 +14,20 @@ class MyDocument extends Document {
 					<meta name="application-name" content="Blue Crystal" />
 					<meta name="apple-mobile-web-app-title" content="Blue Crystal" />
 
-					{ 
-						this.isProduction() &&
-						<>
-							<link rel="manifest" href="/manifest.json" />
-							<meta name="theme-color" content="#0088FF" />
-							<meta name="msapplication-navbutton-color" content="#0088FF" />
-							<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-							<meta name="msapplication-starturl" content="/" />
-							<link rel="icon" href="/assets/icons/icon-192x192.png" />
-							<link rel="apple-touch-icon" href="/assets/icons/icon-192x192.png" />
-							<link rel="icon" sizes="256x256" href="/assets/icons/icon-256x256.png" />
-							<link rel="apple-touch-icon" sizes="256x256" href="/assets/icons/icon-256x256.png" />
-							<link rel="icon" sizes="384x384" href="/assets/icons/icon-384x384.png" />
-							<link rel="apple-touch-icon" sizes="384x384" href="/assets/icons/icon-384x384.png" />
-							<link rel="icon" sizes="512x512" href="/assets/icons/icon-512x512.png" />
-							<link rel="apple-touch-icon" sizes="512x512" href="/assets/icons/icon-512x512.png" />
-						</>
-					}
-
+					<link rel="manifest" href="/manifest.json" />
+					<meta name="theme-color" content="#0088FF" />
+					<meta name="msapplication-navbutton-color" content="#0088FF" />
+					<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+					<meta name="msapplication-starturl" content="/" />
+					<link rel="icon" href="/assets/icons/icon-192x192.png" />
+					<link rel="apple-touch-icon" href="/assets/icons/icon-192x192.png" />
+					<link rel="icon" sizes="256x256" href="/assets/icons/icon-256x256.png" />
+					<link rel="apple-touch-icon" sizes="256x256" href="/assets/icons/icon-256x256.png" />
+					<link rel="icon" sizes="384x384" href="/assets/icons/icon-384x384.png" />
+					<link rel="apple-touch-icon" sizes="384x384" href="/assets/icons/icon-384x384.png" />
+					<link rel="icon" sizes="512x512" href="/assets/icons/icon-512x512.png" />
+					<link rel="apple-touch-icon" sizes="512x512" href="/assets/icons/icon-512x512.png" />
+							
 					<link rel="preconnect" href="https://fonts.googleapis.com" />
 					<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
 					<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"></link>
