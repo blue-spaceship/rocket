@@ -3,8 +3,7 @@ const withPWA = require('next-pwa')
 
 module.exports = withPWA({
   pwa: {
-    dest: 'public',
-		disable: process.env.NODE_ENV === 'dev'
+    dest: 'public'
   },
   sassOptions: {
     includePaths: [path.join(__dirname, '/styles')],
