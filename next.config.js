@@ -3,7 +3,10 @@ const withPWA = require('next-pwa')
 
 module.exports = withPWA({
   pwa: {
-    dest: 'public'
+    dest: 'public',
+  },
+  modifyURLPrefix: {
+    '../public': ''
   },
   sassOptions: {
     includePaths: [path.join(__dirname, '/styles')],
