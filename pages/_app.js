@@ -25,8 +25,16 @@ function App({ Component, pageProps }) {
 	return (
 		<>
 			<Head>
-				<meta name='viewport' content='minimum-scale=1, initial-scale=1, width=device-width, maximum-scale=1.0, shrink-to-fit=no, viewport-fit=cover' />
+				<meta name='viewport' content='minimum-scale=1, initial-scale=1, width=device-width, maximum-scale=1.0, viewport-fit=cover' />
 				<title>Blue Spaceship</title>
+
+				<meta name="title" content="Blue Spaceship" />
+				<meta name="description" content="Blue Spaceship is a next.js based site" />
+				<meta name="keywords" content="blue spaceship" />
+				<meta name="robots" content="index, follow" />
+				<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="language" content="Portuguese" />
+				<meta name="author" content="@walmeidaw" />
 			</Head>
 
 			<Notify />
