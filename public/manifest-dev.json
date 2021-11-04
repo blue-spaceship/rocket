@@ -10,22 +10,27 @@
     "display": "standalone",
     "theme_color": "#5267de",
     "background_color": "#ffffff",
-
-    "shortcuts": [{
-        "name": "Gerenciar Usuários",
-        "short_name": "Usuários",
-        "description": "Abre a gestão de usuários",
-        "url": "/manager/users",
-        "icons": [{
-            "src": "/dev/assets/icons/icon-user-192x192.png",
-            "sizes": "192x192"
-        }]
-    }],
-
-    "icons": [{
+    "shortcuts": [
+        {
+            "name": "Gerenciar Usuários",
+            "short_name": "Usuários",
+            "description": "Abre a gestão de usuários",
+            "url": "/manager/users",
+            "icons": [
+                {
+                    "src": "/dev/assets/icons/icon-user-192x192.png",
+                    "sizes": "192x192"
+                }
+            ]
+        }
+    ],
+    "icons": [
+        {
+            "src": "/dev/assets/icons/icon-192x192.png",
+        },
+        {
             "src": "/dev/assets/icons/icon-192x192.png",
             "sizes": "196x196",
-            "type": "image/png",
             "purpose": "any maskable"
         },
         {
@@ -41,8 +46,8 @@
             "sizes": "512x512"
         }
     ],
-    
-    "screenshots": [{
+    "screenshots": [
+        {
             "src": "/dev/assets/screens/screen-1.png"
         },
         {
