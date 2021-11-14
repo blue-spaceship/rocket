@@ -7,7 +7,8 @@ export const RoleSchema = new Schema({
     name: { type: String },
     active: { type: Boolean, default: true },
     deleted: { type: Boolean, default: false, select: false },
-    deletedAt: { type: Date }
+    deletedAt: { type: Date },
+    _rev: { type: String, nullable: true }
 },{
     _id: false,
 })

@@ -2,9 +2,9 @@ import connectDB from '/services/mongo'
 import { Role } from '/models'
 
 const roles = [
-    { slug: 'admin', name: 'Administrador' },
-    { slug: 'user-manager', name: 'Gerenciar Usuários' },
-    { slug: 'roles-manager', name: 'Gerenciar Papeis' }
+    { _id: 'admin', name: 'Administrador' },
+    { _id: 'user-manager', name: 'Gerenciar Usuários' },
+    { _id: 'roles-manager', name: 'Gerenciar Papeis' }
 ]
 
 const handler = async (req, res) => {
