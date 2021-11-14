@@ -52,7 +52,7 @@ export class Subject {
         this.type = type
     }
 
-    static App() { return new Subject(process.env.APP_NAME, ObjectTypes.app) }
+    static App() { return new Subject(process.env.NEXT_PUBLIC_APP_NAME, ObjectTypes.app) }
     static User(id) { return new Subject(id, ObjectTypes.user) }
     static Role(id) { return new Subject(id, ObjectTypes.skill) }
 }

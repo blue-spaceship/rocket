@@ -25,7 +25,7 @@ const Upload = async (pathBase, file) =>{
 
 
 function getPath(){
-    return `${process.env.APP_NAME}/${ process.env.NEXT_PUBLIC_VERCEL_ENV || process.env.NODE_ENV }`
+    return `${process.env.NEXT_PUBLIC_APP_NAME}/${ process.env.NEXT_PUBLIC_VERCEL_ENV || process.env.NODE_ENV }`
 }
 
 export default Upload
