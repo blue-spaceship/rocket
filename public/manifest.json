@@ -1,10 +1,10 @@
 {
-    "name": "Blue Spaceship",
-    "short_name": "Blue Spaceship",
+    "name": "Rocket",
+    "short_name": "Rocket",
     "dir": "ltr",
     "categories": "business,productivity",
     "lang": "pt",
-    "orientation": "portrait",
+    "orientation": "any",
     "scope": "/",
     "start_url": "/",
     "display": "standalone",
